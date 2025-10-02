@@ -6,15 +6,10 @@
     <title>Avisos BTC — Señales claras. Acciones rápidas.</title>
     <meta name="description" content="Avisos BTC: alertas de Bitcoin claras, métricas transparentes y gráficos simples. Suscríbete y recibe señales accionables." />
 
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Chart.js (CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Tailwind config (opcional: tipografías y modo oscuro) -->
+    <!-- Tailwind config FIRST (needed when using the CDN) -->
     <script>
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             fontFamily: {
@@ -22,9 +17,14 @@
             },
           },
         },
-        darkMode: "class",
       };
     </script>
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,13 +45,11 @@
           <nav class="hidden gap-6 text-sm font-medium sm:flex">
             <a href="#como-funciona" class="hover:text-orange-600">Cómo funciona</a>
             <a href="#resultados" class="hover:text-orange-600">Resultados</a>
-            <a href="#faq" class="hover:text-orange-600">FAQ</a>
-            <a href="#disclaimer" class="hover:text-orange-600">Disclaimer</a>
+            <a href="faq.html" class="hover:text-orange-600">FAQ</a>
+            <a href="privacidad.html" class="hover:text-orange-600">Privacidad</a>
           </nav>
           <div class="flex items-center gap-2">
-            <button id="themeToggle" class="rounded-xl border border-slate-200 px-3 py-1.5 text-sm hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800" aria-label="Cambiar tema">
-              🌓
-            </button>
+            <button id="themeToggle" class="rounded-xl border border-slate-200 px-3 py-1.5 text-sm hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800" aria-label="Cambiar tema">🌓</button>
             <a href="#suscripcion" class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-500">Suscribirme</a>
           </div>
         </div>
@@ -172,46 +170,6 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="py-16">
-      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold">Preguntas frecuentes</h2>
-        <div class="mt-8 divide-y divide-slate-200 rounded-2xl border border-slate-200 dark:divide-slate-800 dark:border-slate-700">
-          <details class="group p-6">
-            <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
-              ¿Cómo recibo los avisos?
-              <span class="ml-4 transition group-open:rotate-180">⌄</span>
-            </summary>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Por Telegram o email. Podrás activar/desactivar cada canal en tu cuenta.</p>
-          </details>
-          <details class="group p-6">
-            <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
-              ¿Puedo cancelar cuando quiera?
-              <span class="ml-4 transition group-open:rotate-180">⌄</span>
-            </summary>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">Sí. Usaremos el portal de cliente de Stripe para que gestiones tu suscripción.</p>
-          </details>
-          <details class="group p-6">
-            <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
-              ¿Ofrecéis asesoramiento financiero?
-              <span class="ml-4 transition group-open:rotate-180">⌄</span>
-            </summary>
-            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">No. Ofrecemos información y avisos automatizados. No es una recomendación de inversión.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Disclaimer -->
-    <section id="disclaimer" class="border-t border-slate-200/60 bg-white py-16 dark:border-slate-800 dark:bg-slate-950">
-      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl font-bold">Disclaimer</h2>
-        <p class="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-300">
-          Avisos BTC proporciona señales y métricas con fines informativos. No constituye asesoramiento financiero, legal o fiscal. El rendimiento pasado no garantiza resultados futuros. Las criptomonedas implican riesgo de pérdida total. Haz tu propia investigación y, si es necesario, consulta con un profesional.
-        </p>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer class="border-t border-slate-200/60 bg-white py-10 text-sm dark:border-slate-800 dark:bg-slate-950">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -223,9 +181,11 @@
           <div class="flex flex-wrap items-center gap-4 text-slate-600 dark:text-slate-300">
             <a href="mailto:hola@avisosbtc.example" class="hover:text-orange-600">hola@avisosbtc.example</a>
             <span>·</span>
-            <a href="#disclaimer" class="hover:text-orange-600">Disclaimer</a>
+            <a href="terminos.html" class="hover:text-orange-600">Términos</a>
             <span>·</span>
-            <a href="#faq" class="hover:text-orange-600">FAQ</a>
+            <a href="privacidad.html" class="hover:text-orange-600">Privacidad</a>
+            <span>·</span>
+            <a href="faq.html" class="hover:text-orange-600">FAQ</a>
           </div>
         </div>
         <p class="mt-6 text-xs text-slate-500">© <span id="year"></span> Avisos BTC. Todos los derechos reservados.</p>

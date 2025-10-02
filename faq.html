@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FAQ — Avisos BTC</title>
+    <meta name="description" content="Preguntas frecuentes sobre Avisos BTC: alertas, suscripciones, pagos y privacidad." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: "class" };</script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+    <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 glass">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 font-semibold">
+          <span class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white">₿</span>
+          <span>Avisos BTC</span>
+        </a>
+        <nav class="hidden gap-6 text-sm font-medium sm:flex">
+          <a href="index.html#como-funciona" class="hover:text-orange-600">Cómo funciona</a>
+          <a href="index.html#resultados" class="hover:text-orange-600">Resultados</a>
+          <a href="faq.html" class="text-orange-600">FAQ</a>
+          <a href="privacidad.html" class="hover:text-orange-600">Privacidad</a>
+        </nav>
+        <a href="index.html#suscripcion" class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-500">Suscribirme</a>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
+      <h1 class="text-3xl font-extrabold">Preguntas frecuentes</h1>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">Respuestas directas a las dudas más comunes.</p>
+
+      <section class="mt-8 divide-y divide-slate-200 rounded-2xl border border-slate-200 dark:divide-slate-800 dark:border-slate-700">
+        <details class="group p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+            ¿Qué es Avisos BTC?
+            <span class="ml-4 transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            Servicio de avisos y métricas sobre Bitcoin con señales automatizadas y contexto.
+          </p>
+        </details>
+        <details class="group p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+            ¿Cómo recibo los avisos?
+            <span class="ml-4 transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            Por Telegram o email. Podrás activar/desactivar cada canal desde tu cuenta.
+          </p>
+        </details>
+        <details class="group p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+            ¿Hay prueba o plan gratuito?
+            <span class="ml-4 transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            Podemos ofrecer un periodo de prueba o plan limitado. Lo detallaremos en Precios.
+          </p>
+        </details>
+        <details class="group p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+            ¿Puedo cancelar cuando quiera?
+            <span class="ml-4 transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            Sí, desde el portal de cliente de Stripe. El acceso continúa hasta el fin del periodo pagado.
+          </p>
+        </details>
+        <details class="group p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+            ¿Guardáis datos de tarjeta?
+            <span class="ml-4 transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            No. Los datos de pago se gestionan en Stripe. Nosotros almacenamos sólo identificadores de suscripción/cliente.
+          </p>
+        </details>
+        <details class="group p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+            ¿Ofrecéis asesoramiento financiero?
+            <span class="ml-4 transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            No. La información es educativa y automatizada. No es una recomendación de inversión.
+          </p>
+        </details>
+        <details class="group p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+            ¿Qué datos personales tratáis?
+            <span class="ml-4 transition group-open:rotate-180">⌄</span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+            Correo, preferencias de entrega, uso agregado y datos de facturación en Stripe. Más en la <a href="privacidad.html" class="text-orange-600 underline">Política de privacidad</a>.
+          </p>
+        </details>
+      </section>
+
+      <p class="mt-6 text-xs text-slate-500">
+        ¿No encuentras tu respuesta? Escríbenos a <a class="text-orange-600 underline" href="mailto:hola@avisosbtc.example">hola@avisosbtc.example</a>.
+      </p>
+    </main>
+
+    <footer class="border-t border-slate-200/60 bg-white py-10 text-sm dark:border-slate-800 dark:bg-slate-950">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
+          <div class="flex items-center gap-2 font-semibold">
+            <span class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white">₿</span>
+            <span>Avisos BTC</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 text-slate-600 dark:text-slate-300">
+            <a href="privacidad.html" class="hover:text-orange-600">Privacidad</a>
+            <span>·</span>
+            <a href="faq.html" class="text-orange-600">FAQ</a>
+            <span>·</span>
+            <a href="mailto:hola@avisosbtc.example" class="hover:text-orange-600">Contacto</a>
+          </div>
+        </div>
+        <p class="mt-6 text-xs text-slate-500">© <span id="year"></span> Avisos BTC. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

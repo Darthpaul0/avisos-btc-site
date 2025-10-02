@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Términos de servicio — Avisos BTC</title>
+    <meta name="description" content="Términos de servicio de Avisos BTC." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: "class" };</script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+    <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 glass">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 font-semibold">
+          <span class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white">₿</span>
+          <span>Avisos BTC</span>
+        </a>
+        <nav class="hidden gap-6 text-sm font-medium sm:flex">
+          <a href="faq.html" class="hover:text-orange-600">FAQ</a>
+          <a href="privacidad.html" class="hover:text-orange-600">Privacidad</a>
+          <a href="terminos.html" class="text-orange-600">Términos</a>
+        </nav>
+        <a href="index.html#suscripcion" class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-500">Suscribirme</a>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
+      <h1 class="text-3xl font-extrabold">Términos de servicio</h1>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">Última actualización: <span id="tos-date"></span></p>
+
+      <section class="prose prose-slate dark:prose-invert max-w-none mt-8">
+        <h2>1. Objeto</h2>
+        <p>Avisos BTC ofrece un servicio de avisos y métricas relacionados con Bitcoin. No constituye asesoramiento financiero.</p>
+
+        <h2>2. Acceso y registro</h2>
+        <p>Debes registrarte con un email válido. Eres responsable de mantener la confidencialidad de tus credenciales.</p>
+
+        <h2>3. Suscripción y pagos</h2>
+        <p>El acceso completo requiere suscripción de pago gestionada por Stripe. Puedes cancelar en cualquier momento desde el portal de cliente.</p>
+
+        <h2>4. Uso aceptable</h2>
+        <p>No debes usar el servicio para actividades ilícitas ni redistribuir señales sin autorización.</p>
+
+        <h2>5. Limitación de responsabilidad</h2>
+        <p>La información se ofrece “tal cual”. Avisos BTC no garantiza resultados ni se hace responsable de pérdidas derivadas del uso.</p>
+
+        <h2>6. Propiedad intelectual</h2>
+        <p>El software, logotipos y contenidos son propiedad de Avisos BTC o de sus licenciantes.</p>
+
+        <h2>7. Modificaciones</h2>
+        <p>Podemos modificar estos términos. Te notificaremos cambios relevantes. El uso continuado implica aceptación.</p>
+
+        <h2>8. Ley aplicable</h2>
+        <p>Estos términos se rigen por la legislación española. Conflictos se someterán a los juzgados competentes en España.</p>
+      </section>
+
+      <p class="mt-8 text-xs text-slate-500">Este texto es orientativo; se recomienda revisión legal profesional.</p>
+    </main>
+
+    <footer class="border-t border-slate-200/60 bg-white py-10 text-sm dark:border-slate-800 dark:bg-slate-950">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
+          <div class="flex items-center gap-2 font-semibold">
+            <span class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white">₿</span>
+            <span>Avisos BTC</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 text-slate-600 dark:text-slate-300">
+            <a href="privacidad.html" class="hover:text-orange-600">Privacidad</a>
+            <span>·</span>
+            <a href="faq.html" class="hover:text-orange-600">FAQ</a>
+            <span>·</span>
+            <a href="terminos.html" class="text-orange-600">Términos</a>
+          </div>
+        </div>
+        <p class="mt-6 text-xs text-slate-500">© <span id="year"></span> Avisos BTC. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+    <script>
+      const d=new Date();const pad=n=>String(n).padStart(2,'0');
+      document.getElementById('tos-date').textContent=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+    </script>
+  </body>
+</html>
