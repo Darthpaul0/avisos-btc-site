@@ -1,0 +1,6 @@
+/* Avisos BTC – estilos mínimos propios (Tailwind para utilidades) */
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* Efecto glass del header sticky */
+.glass { backdrop-filter: blur(12px); background: rgba(255,255,255,0.6); }
+.dark .glass { background: rgba(17,24,39,0.6); }
