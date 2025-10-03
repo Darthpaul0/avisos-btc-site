@@ -7,21 +7,22 @@
     <meta name="description" content="Términos de servicio de Avisos BTC." />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config = { darkMode: "class" };</script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
   </head>
   <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
     <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 glass">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2 font-semibold">
+        <a href="../index.html" class="flex items-center gap-2 font-semibold">
           <span class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white">₿</span>
           <span>Avisos BTC</span>
         </a>
         <nav class="hidden gap-6 text-sm font-medium sm:flex">
+          <a href="../index.html#como-funciona" class="hover:text-orange-600">Cómo funciona</a>
+          <a href="../index.html#resultados" class="hover:text-orange-600">Resultados</a>
           <a href="faq.html" class="hover:text-orange-600">FAQ</a>
           <a href="privacidad.html" class="hover:text-orange-600">Privacidad</a>
-          <a href="terminos.html" class="text-orange-600">Términos</a>
         </nav>
-        <a href="index.html#suscripcion" class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-500">Suscribirme</a>
+        <a href="../index.html#suscripcion" class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-500">Suscribirme</a>
       </div>
     </header>
 
@@ -77,7 +78,7 @@
       </div>
     </footer>
 
-    <script src="app.js" defer></script>
+    <script src="../js/app.js" defer></script>
     <script>
       const d=new Date();const pad=n=>String(n).padStart(2,'0');
       document.getElementById('tos-date').textContent=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
