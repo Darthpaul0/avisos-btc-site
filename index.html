@@ -1,19 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Avisos BTC — Señales claras. Acciones rápidas.</title>
-    <meta name="description" content="Avisos BTC: alertas de Bitcoin claras, métricas transparentes y gráficos simples. Suscríbete y recibe señales accionables." />
+    <meta
+      name="description"
+      content="Avisos BTC: alertas de Bitcoin claras, métricas transparentes y gráficos simples. Suscríbete y recibe señales accionables."
+    />
 
     <!-- Tailwind config FIRST (needed when using the CDN) -->
     <script>
-      tailwind.config = {
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             fontFamily: {
-              sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"],
+              sans: [
+                "Inter",
+                "ui-sans-serif",
+                "system-ui",
+                "-apple-system",
+                "Segoe UI",
+                "Roboto",
+                "Helvetica Neue",
+                "Arial",
+                "Noto Sans",
+                "Apple Color Emoji",
+                "Segoe UI Emoji",
+              ],
             },
           },
         },
@@ -26,31 +42,55 @@
     <!-- Chart.js (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Custom styles -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+  <body
+    class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100"
+  >
     <!-- Topbar / Nav -->
-    <header class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 glass">
+    <header
+      class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 glass"
+    >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-14 items-center justify-between">
           <a href="#hero" class="flex items-center gap-2 font-semibold">
-            <span class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white">₿</span>
+            <span
+              class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white"
+              >₿</span
+            >
             <span>Avisos BTC</span>
           </a>
           <nav class="hidden gap-6 text-sm font-medium sm:flex">
-            <a href="#como-funciona" class="hover:text-orange-600">Cómo funciona</a>
+            <a href="#como-funciona" class="hover:text-orange-600"
+              >Cómo funciona</a
+            >
             <a href="#resultados" class="hover:text-orange-600">Resultados</a>
             <a href="pages/faq.html" class="hover:text-orange-600">FAQ</a>
-            <a href="pages/privacidad.html" class="hover:text-orange-600">Privacidad</a>
+            <a href="pages/privacidad.html" class="hover:text-orange-600"
+              >Privacidad</a
+            >
           </nav>
           <div class="flex items-center gap-2">
-            <button id="themeToggle" class="rounded-xl border border-slate-200 px-3 py-1.5 text-sm hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800" aria-label="Cambiar tema">🌓</button>
-            <a href="#suscripcion" class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-500">Suscribirme</a>
+            <button
+              id="themeToggle"
+              class="rounded-xl border border-slate-200 px-3 py-1.5 text-sm hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+              aria-label="Cambiar tema"
+            >
+              🌓
+            </button>
+            <a
+              href="#suscripcion"
+              class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-500"
+              >Suscribirme</a
+            >
           </div>
         </div>
       </div>
@@ -62,44 +102,80 @@
         <div class="grid items-center gap-10 md:grid-cols-2">
           <div>
             <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
-              BTC alerts <span class="text-orange-600">que puedes aprovechar</span>
+              BTC alerts
+              <span class="text-orange-600">que puedes aprovechar</span>
             </h1>
             <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
-              Señales claras, entrega sencilla (Telegram y email), y métricas transparentes. Sin ruido.
+              Señales claras, entrega sencilla (Telegram y email), y métricas
+              transparentes. Sin ruido.
             </p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <a href="#suscripcion" class="rounded-xl bg-orange-600 px-5 py-3 font-semibold text-white shadow hover:bg-orange-500">Suscribirme</a>
-              <a href="#como-funciona" class="rounded-xl border border-slate-200 px-5 py-3 font-semibold hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800">Cómo funciona</a>
+              <a
+                href="#suscripcion"
+                class="rounded-xl bg-orange-600 px-5 py-3 font-semibold text-white shadow hover:bg-orange-500"
+                >Suscribirme</a
+              >
+              <a
+                href="#como-funciona"
+                class="rounded-xl border border-slate-200 px-5 py-3 font-semibold hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+                >Cómo funciona</a
+              >
             </div>
-            <p class="mt-3 text-xs text-slate-500">Sin spam. Puedes cancelar cuando quieras.</p>
+            <p class="mt-3 text-xs text-slate-500">
+              Sin spam. Puedes cancelar cuando quieras.
+            </p>
           </div>
-          <div class="rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700">
-            <canvas id="chartHero" aria-label="Vista previa de actividad" role="img" height="220"></canvas>
+          <div
+            class="rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
+          >
+            <canvas
+              id="chartHero"
+              aria-label="Vista previa de actividad"
+              role="img"
+              height="220"
+            ></canvas>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Cómo funciona -->
-    <section id="como-funciona" class="border-t border-slate-200/60 bg-white py-16 dark:border-slate-800 dark:bg-slate-950">
+    <section
+      id="como-funciona"
+      class="border-t border-slate-200/60 bg-white py-16 dark:border-slate-800 dark:bg-slate-950"
+    >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl font-bold">Cómo funciona</h2>
-        <p class="mt-2 text-slate-600 dark:text-slate-300">Tres pasos para empezar hoy:</p>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">
+          Tres pasos para empezar hoy:
+        </p>
         <div class="mt-8 grid gap-6 md:grid-cols-3">
-          <div class="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700">
+          <div
+            class="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700"
+          >
             <div class="text-2xl">1️⃣</div>
             <h3 class="mt-3 font-semibold">Elige tus avisos</h3>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Selecciona estrategias y tipos de señal que te interesen.</p>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Selecciona estrategias y tipos de señal que te interesen.
+            </p>
           </div>
-          <div class="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700">
+          <div
+            class="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700"
+          >
             <div class="text-2xl">2️⃣</div>
             <h3 class="mt-3 font-semibold">Conecta la entrega</h3>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Recibe avisos por Telegram o email, como prefieras.</p>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Recibe avisos por Telegram o email, como prefieras.
+            </p>
           </div>
-          <div class="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700">
+          <div
+            class="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700"
+          >
             <div class="text-2xl">3️⃣</div>
             <h3 class="mt-3 font-semibold">Actúa con claridad</h3>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Te mostramos contexto y métricas para ayudarte a decidir.</p>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+              Te mostramos contexto y métricas para ayudarte a decidir.
+            </p>
           </div>
         </div>
       </div>
@@ -111,26 +187,39 @@
         <div class="flex items-end justify-between gap-4">
           <div>
             <h2 class="text-2xl font-bold">Resultados</h2>
-            <p class="mt-2 text-slate-600 dark:text-slate-300">Transparencia desde el primer día (datos de ejemplo en el MVP).</p>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">
+              Transparencia desde el primer día (datos de ejemplo en el MVP).
+            </p>
           </div>
-          <div class="text-xs text-slate-500">*Métricas ilustrativas. Integraremos datos reales al conectar el backend.</div>
+          <div class="text-xs text-slate-500">
+            *Métricas ilustrativas. Integraremos datos reales al conectar el
+            backend.
+          </div>
         </div>
 
         <!-- KPI cards -->
         <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-2xl border border-slate-200 p-5 shadow-sm dark:border-slate-700">
+          <div
+            class="rounded-2xl border border-slate-200 p-5 shadow-sm dark:border-slate-700"
+          >
             <div class="text-sm text-slate-500">Alertas (24h)</div>
             <div class="mt-1 text-3xl font-bold" id="kpi-alertas">12</div>
           </div>
-          <div class="rounded-2xl border border-slate-200 p-5 shadow-sm dark:border-slate-700">
+          <div
+            class="rounded-2xl border border-slate-200 p-5 shadow-sm dark:border-slate-700"
+          >
             <div class="text-sm text-slate-500">Precisión (30d)</div>
             <div class="mt-1 text-3xl font-bold" id="kpi-precision">63%</div>
           </div>
-          <div class="rounded-2xl border border-slate-200 p-5 shadow-sm dark:border-slate-700">
+          <div
+            class="rounded-2xl border border-slate-200 p-5 shadow-sm dark:border-slate-700"
+          >
             <div class="text-sm text-slate-500">Tiempo medio a señal</div>
             <div class="mt-1 text-3xl font-bold" id="kpi-tiempo">3m 12s</div>
           </div>
-          <div class="rounded-2xl border border-slate-200 p-5 shadow-sm dark:border-slate-700">
+          <div
+            class="rounded-2xl border border-slate-200 p-5 shadow-sm dark:border-slate-700"
+          >
             <div class="text-sm text-slate-500">Max drawdown (30d)</div>
             <div class="mt-1 text-3xl font-bold" id="kpi-dd">-2.8%</div>
           </div>
@@ -138,7 +227,9 @@
 
         <!-- Charts -->
         <div class="mt-10 grid gap-6 lg:grid-cols-2">
-          <div class="rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700">
+          <div
+            class="rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
+          >
             <div class="mb-2 flex items-center justify-between">
               <h3 class="font-semibold">Evolución de señales útiles (30d)</h3>
               <span class="text-xs text-slate-500">Tasa de acierto diaria</span>
@@ -146,7 +237,9 @@
             <canvas id="chartAcierto" height="220"></canvas>
           </div>
 
-          <div class="rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700">
+          <div
+            class="rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
+          >
             <div class="mb-2 flex items-center justify-between">
               <h3 class="font-semibold">Rendimiento por estrategia</h3>
               <span class="text-xs text-slate-500">% sobre periodo</span>
@@ -158,37 +251,73 @@
     </section>
 
     <!-- Suscripción (ancla simple por ahora) -->
-    <section id="suscripcion" class="border-t border-slate-200/60 bg-white py-16 dark:border-slate-800 dark:bg-slate-950">
+    <section
+      id="suscripcion"
+      class="border-t border-slate-200/60 bg-white py-16 dark:border-slate-800 dark:bg-slate-950"
+    >
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-2xl font-bold">Suscríbete</h2>
-        <p class="mt-2 text-slate-600 dark:text-slate-300">Activa tus avisos. Integraremos Checkout de Stripe en breve.</p>
-        <div class="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <a href="#" class="rounded-xl bg-orange-600 px-6 py-3 font-semibold text-white shadow hover:bg-orange-500">Plan Pro — 9,90€ / mes</a>
-          <a href="#" class="rounded-xl border border-slate-200 px-6 py-3 font-semibold hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800">Pro+ — 14,90€ / mes</a>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">
+          Activa tus avisos. Integraremos Checkout de Stripe en breve.
+        </p>
+        <div
+          class="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+        >
+          <a
+            href="#"
+            class="rounded-xl bg-orange-600 px-6 py-3 font-semibold text-white shadow hover:bg-orange-500"
+            >Plan Pro — 9,90€ / mes</a
+          >
+          <a
+            href="#"
+            class="rounded-xl border border-slate-200 px-6 py-3 font-semibold hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+            >Pro+ — 14,90€ / mes</a
+          >
         </div>
-        <p class="mt-3 text-xs text-slate-500">Gestionable desde el Portal de Cliente (Stripe).</p>
+        <p class="mt-3 text-xs text-slate-500">
+          Gestionable desde el Portal de Cliente (Stripe).
+        </p>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-200/60 bg-white py-10 text-sm dark:border-slate-800 dark:bg-slate-950">
+    <footer
+      class="border-t border-slate-200/60 bg-white py-10 text-sm dark:border-slate-800 dark:bg-slate-950"
+    >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
+        <div
+          class="flex flex-col justify-between gap-6 sm:flex-row sm:items-center"
+        >
           <div class="flex items-center gap-2 font-semibold">
-            <span class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white">₿</span>
+            <span
+              class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white"
+              >₿</span
+            >
             <span>Avisos BTC</span>
           </div>
-          <div class="flex flex-wrap items-center gap-4 text-slate-600 dark:text-slate-300">
-            <a href="mailto:hola@avisosbtc.example" class="hover:text-orange-600">hola@avisosbtc.example</a>
+          <div
+            class="flex flex-wrap items-center gap-4 text-slate-600 dark:text-slate-300"
+          >
+            <a
+              href="mailto:hola@avisosbtc.example"
+              class="hover:text-orange-600"
+              >hola@avisosbtc.example</a
+            >
             <span>·</span>
-            <a href="pages/terminos.html" class="hover:text-orange-600">Términos</a>
+            <a href="pages/terminos.html" class="hover:text-orange-600"
+              >Términos</a
+            >
             <span>·</span>
-            <a href="pages/privacidad.html" class="hover:text-orange-600">Privacidad</a>
+            <a href="pages/privacidad.html" class="hover:text-orange-600"
+              >Privacidad</a
+            >
             <span>·</span>
             <a href="pages/faq.html" class="hover:text-orange-600">FAQ</a>
           </div>
         </div>
-        <p class="mt-6 text-xs text-slate-500">© <span id="year"></span> Avisos BTC. Todos los derechos reservados.</p>
+        <p class="mt-6 text-xs text-slate-500">
+          © <span id="year"></span> Avisos BTC. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
 
