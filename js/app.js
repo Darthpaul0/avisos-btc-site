@@ -1,8 +1,13 @@
 // Avisos BTC – lógica ligera de la landing
 
-// --- Año dinámico en footer ---
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+function initializeDynamicContent() {
+  // --- Año dinámico en footer ---
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // --- Cookie banner (consentimiento básico) ---
+  initCookieBanner();
+}
 
 // --- Chart helper ---
 function makeChart(ctx, type, data, options) {
