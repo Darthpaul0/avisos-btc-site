@@ -31,37 +31,9 @@
   >
     <!-- Topbar / Nav -->
     <header
+      id="main-header"
       class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 glass"
-    >
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-14 items-center justify-between">
-          <a href="#hero" class="flex items-center gap-2 font-semibold">
-            <span
-              class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white"
-              >₿</span
-            >
-            <span>Avisos BTC</span>
-          </a>
-          <nav class="hidden gap-6 text-sm font-medium sm:flex">
-            <a href="#como-funciona" class="hover:text-orange-600"
-              >Cómo funciona</a
-            >
-            <a href="#resultados" class="hover:text-orange-600">Resultados</a>
-            <a href="pages/faq.html" class="hover:text-orange-600">FAQ</a>
-            <a href="pages/privacidad.html" class="hover:text-orange-600"
-              >Privacidad</a
-            >
-          </nav>
-          <div class="flex items-center gap-2">
-            <a
-              href="#suscripcion"
-              class="rounded-xl bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-500"
-              >Suscribirme</a
-            >
-          </div>
-        </div>
-      </div>
-    </header>
+    ></header>
 
     <!-- Hero -->
     <section id="hero" class="relative overflow-hidden">
@@ -249,46 +221,12 @@
 
     <!-- Footer -->
     <footer
+      id="main-footer"
       class="border-t border-slate-200/60 bg-white py-10 text-sm dark:border-slate-800 dark:bg-slate-950"
-    >
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div
-          class="flex flex-col justify-between gap-6 sm:flex-row sm:items-center"
-        >
-          <div class="flex items-center gap-2 font-semibold">
-            <span
-              class="inline-grid h-6 w-6 place-items-center rounded-md bg-orange-500 text-white"
-              >₿</span
-            >
-            <span>Avisos BTC</span>
-          </div>
-          <div
-            class="flex flex-wrap items-center gap-4 text-slate-600 dark:text-slate-300"
-          >
-            <a
-              href="mailto:hola@avisosbtc.example"
-              class="hover:text-orange-600"
-              >hola@avisosbtc.example</a
-            >
-            <span>·</span>
-            <a href="pages/terminos.html" class="hover:text-orange-600"
-              >Términos</a
-            >
-            <span>·</span>
-            <a href="pages/privacidad.html" class="hover:text-orange-600"
-              >Privacidad</a
-            >
-            <span>·</span>
-            <a href="pages/faq.html" class="hover:text-orange-600">FAQ</a>
-          </div>
-        </div>
-        <p class="mt-6 text-xs text-slate-500">
-          © <span id="year"></span> Avisos BTC. Todos los derechos reservados.
-        </p>
-      </div>
-    </footer>
+    ></footer>
 
     <!-- App JS -->
+    <script src="js/includes.js" defer></script>
     <script src="js/app.js" defer></script>
   </body>
 </html>
