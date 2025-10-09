@@ -7,6 +7,36 @@ function initializeDynamicContent() {
 
   // --- Cookie banner (consentimiento básico) ---
   initCookieBanner();
+
+  // --- Mobile Menu ---
+  initMobileMenu();
+}
+
+// --- Mobile Menu ---
+function initMobileMenu() {
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const closeBtn = document.getElementById("mobile-menu-close-btn");
+  const menu = document.getElementById("mobile-menu");
+  const menuLinks = document.querySelectorAll(".mobile-menu-link");
+
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => {
+      menu.classList.remove("hidden");
+    });
+  }
+
+  if (closeBtn && menu) {
+    closeBtn.addEventListener("click", () => {
+      menu.classList.add("hidden");
+    });
+  }
+
+  // Close menu when a link is clicked
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.classList.add("hidden");
+    });
+  });
 }
 
 // --- Chart helper ---
