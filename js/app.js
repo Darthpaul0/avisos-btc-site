@@ -170,4 +170,4 @@ function initCookieBanner() {
 }
 
 // Ejecutar banner tras cargar el DOM
-window.addEventListener("DOMContentLoaded", initCookieBanner);
+window.addEventListener("DOMContentLoaded", initializeDynamicContent);
