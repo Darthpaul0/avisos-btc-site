@@ -8,39 +8,6 @@ function initializeDynamicContent() {
   // --- Cookie banner (consentimiento básico) ---
   initCookieBanner();
 
-  // --- Mobile Menu ---
-  initMobileMenu();
-}
-
-// --- Mobile Menu ---
-function initMobileMenu() {
-  const menuBtn = document.getElementById("mobile-menu-btn");
-  const closeBtn = document.getElementById("mobile-menu-close-btn");
-  const menu = document.getElementById("mobile-menu");
-  const menuLinks = document.querySelectorAll(".mobile-menu-link");
-
-  if (!menu) return;
-
-  const openMenu = () => {
-    menu.classList.remove("hidden");
-    document.body.style.overflow = "hidden"; // bloquear scroll fondo
-    menu.setAttribute("aria-hidden", "false");
-  };
-
-  const closeMenu = () => {
-    menu.classList.add("hidden");
-    document.body.style.overflow = ""; // restaurar scroll
-    menu.setAttribute("aria-hidden", "true");
-  };
-
-  menuBtn && menuBtn.addEventListener("click", openMenu);
-  closeBtn && closeBtn.addEventListener("click", closeMenu);
-  menuLinks.forEach((link) => link.addEventListener("click", closeMenu));
-
-  // Cerrar con ESC
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-  });
 }
 
 // --- Chart helper ---
