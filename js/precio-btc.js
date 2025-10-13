@@ -16,4 +16,4 @@ async function obtenerPrecioBTC() {
 }
 
 obtenerPrecioBTC();
-setInterval(obtenerPrecioBTC, 30000);
+setInterval(obtenerPrecioBTC, 60000);
