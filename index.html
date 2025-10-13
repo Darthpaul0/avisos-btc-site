@@ -107,6 +107,58 @@
         </p>
       </div>
     </section>
+    <!-- Resultados: tarjetas + gráficos -->
+    <section id="resultados" class="py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-bold">Resultados</h2>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">
+              ¿Qué tal ha funcionado el sistema?
+            </p>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
+          <!-- Gráfico 1 -->
+          <div class="overflow-x-auto">
+            <div
+              class="min-w-[320px] rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
+            >
+              <div class="mb-2 flex items-center justify-between">
+                <h3 class="font-semibold">% de señales ganadoras por año</h3>
+                <span class="text-xs text-slate-500"
+                  >Métrica histórica desde 2014</span
+                >
+              </div>
+              <canvas id="chartAcierto" height="220"></canvas>
+            </div>
+          </div>
+
+          <!-- Gráfico 2 -->
+          <div class="overflow-x-auto">
+            <div
+              class="min-w-[320px] rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
+            >
+              <div class="mb-2 flex items-center justify-between">
+                <h3 class="font-semibold">Rentabilidad media por señal</h3>
+                <span class="text-xs text-slate-500"
+                  >% medio por operación</span
+                >
+              </div>
+              <canvas id="chartEstrategias" height="220"></canvas>
+            </div>
+          </div>
+        </div>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">
+          <strong
+            >Una sola operación buena cubre más que de sobra el coste de la
+            suscripción.</strong
+          >
+        </p>
+      </div>
+    </section>
 
     <!-- Cómo funciona -->
     <section
@@ -149,51 +201,6 @@
             </p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Resultados: tarjetas + gráficos -->
-    <section id="resultados" class="py-16">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex items-end justify-between gap-4">
-          <div>
-            <h2 class="text-2xl font-bold">Resultados</h2>
-            <p class="mt-2 text-slate-600 dark:text-slate-300">
-              ¿Qué tal ha funcionado el sistema?
-            </p>
-          </div>
-        </div>
-
-        <!-- Charts -->
-        <div class="mt-10 grid gap-6 lg:grid-cols-2">
-          <div
-            class="rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
-          >
-            <div class="mb-2 flex items-center justify-between">
-              <h3 class="font-semibold">% de señales ganadoras por año</h3>
-              <span class="text-xs text-slate-500"
-                >Métrica histórica desde 2019</span
-              >
-            </div>
-            <canvas id="chartAcierto" height="220"></canvas>
-          </div>
-
-          <div
-            class="rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
-          >
-            <div class="mb-2 flex items-center justify-between">
-              <h3 class="font-semibold">Rentabilidad media por señal</h3>
-              <span class="text-xs text-slate-500">% medio por operación</span>
-            </div>
-            <canvas id="chartEstrategias" height="220"></canvas>
-          </div>
-        </div>
-        <p class="mt-2 text-slate-600 dark:text-slate-300">
-          <strong
-            >Una sola operación buena cubre más que de sobra el coste de la
-            suscripción.</strong
-          >
-        </p>
       </div>
     </section>
 
