@@ -49,19 +49,16 @@
     <!-- Custom styles -->
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body
-    class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-  >
+  <body class="bg-slate-950 text-slate-100">
     <!-- Topbar / Nav -->
     <header
       id="main-header"
-      class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 glass"
+      class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/60 glass"
     ></header>
 
     <!-- Hero -->
-    <section id="hero" class="relative overflow-hidden">
+    <section id="hero" class="bg-slate-900 py-16">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <!-- Título + Precio BTC -->
         <div
           class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
         >
@@ -70,7 +67,6 @@
             <span class="text-orange-600">en el momento justo.</span>
           </h1>
 
-          <!-- Precio BTC en tiempo real -->
           <div class="btc-price-box">
             <img
               src="https://cryptofonts.com/img/icons/btc.svg"
@@ -81,13 +77,11 @@
           </div>
         </div>
 
-        <!-- Subtítulo -->
-        <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+        <p class="mt-4 text-lg text-slate-300">
           Recibe señales en tu teléfono. Fácil, transparente y sin
           complicaciones.
         </p>
 
-        <!-- Botones -->
         <div class="mt-8 flex flex-wrap gap-3">
           <a
             href="#suscripcion"
@@ -96,39 +90,38 @@
           >
           <a
             href="#como-funciona"
-            class="rounded-xl border border-slate-200 px-5 py-3 font-semibold hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+            class="rounded-xl border border-slate-700 px-5 py-3 font-semibold hover:bg-slate-800"
             >Cómo funciona</a
           >
         </div>
 
-        <!-- Aviso -->
         <p class="mt-3 text-xs text-slate-500">
           Sin spam. Puedes cancelar cuando quieras.
         </p>
       </div>
     </section>
-    <!-- Resultados: tarjetas + gráficos -->
-    <section id="resultados" class="py-16">
+
+    <!-- Resultados -->
+    <section id="resultados" class="bg-slate-950 py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between gap-4">
           <div>
             <h2 class="text-2xl font-bold">Resultados</h2>
-            <p class="mt-2 text-slate-600 dark:text-slate-300">
+            <p class="mt-2 text-slate-300">
               ¿Qué tal ha funcionado el sistema?
             </p>
           </div>
         </div>
 
-        <!-- Charts -->
         <div class="mt-10 grid gap-6 lg:grid-cols-2">
           <!-- Gráfico 1 -->
           <div class="overflow-x-auto">
             <div
-              class="min-w-[320px] rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
+              class="min-w-[320px] rounded-2xl border border-slate-700 p-4 shadow-sm"
             >
               <div class="mb-2 flex items-center justify-between">
                 <h3 class="font-semibold">% de señales ganadoras por año</h3>
-                <span class="text-xs text-slate-500"
+                <span class="text-xs text-slate-400"
                   >Métrica histórica desde 2014</span
                 >
               </div>
@@ -139,11 +132,11 @@
           <!-- Gráfico 2 -->
           <div class="overflow-x-auto">
             <div
-              class="min-w-[320px] rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
+              class="min-w-[320px] rounded-2xl border border-slate-700 p-4 shadow-sm"
             >
               <div class="mb-2 flex items-center justify-between">
                 <h3 class="font-semibold">Rentabilidad media por señal</h3>
-                <span class="text-xs text-slate-500"
+                <span class="text-xs text-slate-400"
                   >% medio por operación</span
                 >
               </div>
@@ -151,7 +144,8 @@
             </div>
           </div>
         </div>
-        <p class="mt-2 text-slate-600 dark:text-slate-300">
+
+        <p class="mt-2 text-slate-300">
           <strong
             >Una sola operación buena cubre más que de sobra el coste de la
             suscripción.</strong
@@ -163,40 +157,32 @@
     <!-- Cómo funciona -->
     <section
       id="como-funciona"
-      class="border-t border-slate-200/60 bg-white py-16 dark:border-slate-800 dark:bg-slate-950"
+      class="bg-slate-900 border-t border-slate-800 py-16"
     >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl font-bold">Cómo funciona</h2>
-        <p class="mt-2 text-slate-600 dark:text-slate-300">
-          Tres pasos para empezar hoy:
-        </p>
+        <p class="mt-2 text-slate-300">Tres pasos para empezar hoy:</p>
         <div class="mt-8 grid gap-6 md:grid-cols-3">
-          <div
-            class="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700"
-          >
+          <div class="rounded-2xl border border-slate-700 p-6 shadow-sm">
             <div class="text-2xl">1️⃣</div>
             <h3 class="mt-3 font-semibold">Elige tu plan</h3>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            <p class="mt-2 text-sm text-slate-300">
               Selecciona el plan que más te interesa.
             </p>
           </div>
-          <div
-            class="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700"
-          >
+          <div class="rounded-2xl border border-slate-700 p-6 shadow-sm">
             <div class="text-2xl">2️⃣</div>
             <h3 class="mt-3 font-semibold">
               Decide cómo quieres recibir los avisos
             </h3>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            <p class="mt-2 text-sm text-slate-300">
               Por Telegram o email, como prefieras.
             </p>
           </div>
-          <div
-            class="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700"
-          >
+          <div class="rounded-2xl border border-slate-700 p-6 shadow-sm">
             <div class="text-2xl">3️⃣</div>
             <h3 class="mt-3 font-semibold">Tú eliges</h3>
-            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            <p class="mt-2 text-sm text-slate-300">
               Opera con la tranquilidad y confianza que da un sistema probado.
             </p>
           </div>
@@ -207,53 +193,34 @@
     <!-- BTC en datos -->
     <section
       id="btc-datos"
-      class="border-t border-slate-200/60 bg-white py-16 dark:border-slate-800 dark:bg-slate-950"
+      class="bg-slate-950 border-t border-slate-800 py-16"
     >
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex items-end justify-between gap-4">
           <div>
-            <h2
-              class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
-            >
-              Bitcoin en datos
-            </h2>
-            <p class="mt-2 text-slate-600 dark:text-slate-300">
+            <h2 class="text-2xl font-bold tracking-tight">Bitcoin en datos</h2>
+            <p class="mt-2 text-slate-300">
               Una mirada cuantitativa a la evolución de Bitcoin desde sus
               inicios hasta hoy.
             </p>
           </div>
         </div>
 
-        <!-- Rentabilidad desde la fecha de BTC hasta hoy -->
         <div
-          class="mt-10 rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+          class="mt-10 rounded-2xl border border-slate-700 p-6 shadow-sm bg-slate-900"
         >
-          <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
-            Evolución del precio de BTCEUR
-          </h3>
-          <p class="mt-2 text-slate-600 dark:text-slate-300">
+          <h3 class="text-lg font-semibold">Evolución del precio de BTCEUR</h3>
+          <p class="mt-2 text-slate-300">
             El precio de Bitcoin ha experimentado un crecimiento exponencial
             desde su creación en 2009. En esta gráfica, se puede observar su
             valor con respecto al Euro a final de cada año.
           </p>
-
-          <!-- Contenedor del gráfico BTC -->
           <div
-            class="mt-6 rounded-2xl border border-slate-200 p-4 dark:border-slate-700 dark:bg-slate-900"
+            class="mt-6 rounded-2xl border border-slate-700 p-4 bg-slate-900"
           >
             <div class="flex flex-wrap items-center justify-between gap-3">
-              <h4 class="font-medium text-slate-900 dark:text-white">
-                BTC/EUR
-              </h4>
-
-              <div class="flex items-center gap-3">
-                <!-- visor dinámico Año · Precio -->
-                <span
-                  id="btcHoverReadout"
-                  class="text-xs text-slate-500 dark:text-slate-400"
-                  >—</span
-                >
-              </div>
+              <h4 class="font-medium">BTC/EUR</h4>
+              <span id="btcHoverReadout" class="text-xs text-slate-400">—</span>
             </div>
             <div class="mt-3 h-80">
               <canvas
@@ -265,19 +232,18 @@
           </div>
         </div>
 
-        <!-- ¿Por qué es pronto aún para entrar a BTC? -->
         <div
-          class="mt-10 rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+          class="mt-10 rounded-2xl border border-slate-700 p-6 shadow-sm bg-slate-900"
         >
-          <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+          <h3 class="text-lg font-semibold">
             ¿Por qué es pronto aún para entrar a BTC?
           </h3>
-          <p class="mt-2 text-slate-600 dark:text-slate-300">
+          <p class="mt-2 text-slate-300">
             Aunque Bitcoin es cada vez más conocido, el nivel de adopción global
             sigue siendo bajo. Según las estimaciones más optimistas, menos del
             1% de la población mundial posee algo de BTC.
           </p>
-          <p class="mt-2 text-slate-600 dark:text-slate-300">
+          <p class="mt-2 text-slate-300">
             Además, existe un límite máximo de 21 millones de BTC que pueden ser
             minados, lo que lo convierte en un activo deflacionario. A
             diferencia del dinero fiat, que puede ser impreso en grandes
@@ -286,50 +252,38 @@
           </p>
         </div>
 
-        <!-- Poder adquisitivo BTC vs fiat -->
         <div
-          class="mt-10 rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+          class="mt-10 rounded-2xl border border-slate-700 p-6 shadow-sm bg-slate-900"
         >
-          <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+          <h3 class="text-lg font-semibold">
             Poder adquisitivo de BTC frente a monedas fiat
           </h3>
-          <p class="mt-2 text-slate-600 dark:text-slate-300">
+          <p class="mt-2 text-slate-300">
             En 2010, un usuario pagó
-            <strong>10.000 BTC por dos pizzas </strong> (unos 40$ por aquel
+            <strong>10.000 BTC por dos pizzas</strong> (unos 40$ por aquel
             entonces).
           </p>
-          <p class="mt-2 text-slate-600 dark:text-slate-300">
-            En 2011, con esos 10.000 BTC
-            <strong> se podría haber comprado un coche.</strong>
-          </p>
-          <p class="mt-2 text-slate-600 dark:text-slate-300">
-            En 2012, con esos 10.000 BTC
-            <strong> se podría haber comprado una casa.</strong>
-          </p>
-          <p class="mt-2 text-slate-600 dark:text-slate-300">
+          <p class="mt-2 text-slate-300">
             Hoy, esa misma cantidad equivaldría a
             <strong id="btc-10000-eur">cientos de millones de euros</strong>.
           </p>
-          <p class="mt-2 text-slate-600 dark:text-slate-300">
+          <p class="mt-2 text-slate-300">
             Pero no es que el BTC valga más. 1 BTC sigue siendo 1 BTC. Es el
             dinero fiat el que pierde valor con el tiempo debido a la inflación
-            y la impresión masiva de moneda.<strong>
-              El BTC no solo combate la inflación, sino que además actúa como
-              reserva de valor</strong
-            >
+            y la impresión masiva de moneda.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Suscripción (ancla simple por ahora) -->
+    <!-- Suscripción -->
     <section
       id="suscripcion"
-      class="border-t border-slate-200/60 bg-white py-16 dark:border-slate-800 dark:bg-slate-950"
+      class="bg-slate-900 border-t border-slate-800 py-16"
     >
       <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-2xl font-bold">Suscríbete</h2>
-        <p class="mt-2 text-slate-600 dark:text-slate-300">
+        <p class="mt-2 text-slate-300">
           Activa tus avisos. Integraremos Checkout de Stripe en breve.
         </p>
         <div
@@ -342,21 +296,22 @@
           >
           <a
             href="#"
-            class="rounded-xl border border-slate-200 px-6 py-3 font-semibold hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+            class="rounded-xl border border-slate-700 px-6 py-3 font-semibold hover:bg-slate-800"
             >Anual — 100€ / año</a
           >
         </div>
-        <!-- <p class="mt-3 text-xs text-slate-500">
-          Gestionable desde el Portal de Cliente (Stripe).
-        </p> -->
       </div>
     </section>
 
     <!-- Footer -->
     <footer
       id="main-footer"
-      class="border-t border-slate-200/60 bg-white py-10 text-sm dark:border-slate-800 dark:bg-slate-950"
-    ></footer>
+      class="bg-slate-950 border-t border-slate-800 py-10 text-sm"
+    >
+      <div class="text-center text-slate-500">
+        © 2025 Avisos BTC. Todos los derechos reservados.
+      </div>
+    </footer>
 
     <!-- App JS -->
     <script src="js/includes.js" defer></script>
