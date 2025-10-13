@@ -8,6 +8,15 @@ function initializeDynamicContent() {
   // --- Cookie banner (consentimiento básico) ---
   initCookieBanner();
 
+  // --- Toggle menú móvil ---
+  const menuBtn = document.getElementById("mobileMenuButton");
+  const menu = document.getElementById("mobileMenu");
+
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  }
 }
 
 // --- Chart helper ---
