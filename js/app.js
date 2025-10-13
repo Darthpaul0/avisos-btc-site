@@ -175,17 +175,61 @@ function initMobileMenu() {
 //  - Chart.js ya cargado (la página lo tiene).
 //  - SheetJS (xlsx.full.min.js) añadido en <head>.
 
+// ================= BTC en datos (Excel + Chart con toggle de escala) =================
 (function initBTCChart() {
   const canvas = document.getElementById("chartBTC");
-  if (!canvas) return; // si no existe la sección, no hacemos nada
+  if (!canvas) return;
 
-  // 1) Ruta del Excel. Ajusta si lo colocas en otra carpeta:
-  //    Ejemplos válidos:
-  //    - "./btc_price.xlsx" (misma carpeta que index.html)
-  //    - "/data/btc_price.xlsx"  (carpeta /data en el servidor)
   const BTC_XLSX_URL = "/data/btc_price.xlsx";
+  const readout = document.getElementById("btcHoverReadout");
+  const btnLin = document.getElementById("btnScaleLinear");
+  const btnLog = document.getElementById("btnScaleLog");
 
-  // 2) Cargar y parsear el Excel
+  // --- Utilidades de formato
+  const CURRENCY = "€";
+  const fmtNum = (n, opts = { maximumFractionDigits: 2 }) =>
+    new Intl.NumberFormat("es-ES", opts).format(n);
+  const fmtCompact = (n) => {
+    if (n < 1) return CURRENCY + fmtNum(n);
+    return (
+      CURRENCY + fmtNum(n, { notation: "compact", maximumFractionDigits: 2 })
+    );
+  };
+
+  // --- Crosshair / guía vertical + visor Año·Precio
+  const hoverGuidePlugin = {
+    id: "hoverGuide",
+    afterDatasetsDraw(chart, args, pluginOptions) {
+      const { ctx, tooltip, chartArea, scales } = chart;
+      const active = tooltip?.dataPoints?.[0];
+      if (!active) return;
+
+      // línea vertical
+      const x = active.element.x;
+      ctx.save();
+      ctx.strokeStyle = "rgba(148,163,184,0.35)";
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(x, chartArea.top);
+      ctx.lineTo(x, chartArea.bottom);
+      ctx.stroke();
+      ctx.restore();
+
+      // visor año·precio en el header (fuera del canvas)
+      const label = active.label;
+      const value = active.parsed.y;
+      if (readout)
+        readout.textContent = `${label} · ${CURRENCY}${fmtNum(value)}`;
+    },
+    afterEvent(chart) {
+      // cuando no hay hover, limpia el visor
+      const { tooltip } = chart;
+      if (!tooltip?.dataPoints?.length && readout) readout.textContent = "—";
+    },
+  };
+  Chart.register(hoverGuidePlugin); // registro global
+
+  // --- Cargar Excel y dibujar
   fetch(BTC_XLSX_URL)
     .then((r) => {
       if (!r.ok) throw new Error("No se pudo cargar btc_price.xlsx");
@@ -196,118 +240,84 @@ function initMobileMenu() {
       const sheet = wb.Sheets[wb.SheetNames[0]];
       const rows = XLSX.utils.sheet_to_json(sheet, { defval: null });
 
-      // 3) Normalizar filas -> [{year, price}] o [{date, price}]
       const series = normalizeBTCData(rows);
       if (!series.length)
-        throw new Error("No se encontraron columnas compatibles");
+        throw new Error(
+          "Estructura del Excel no reconocida (se esperaban columnas Año/Precio o Fecha/Precio)"
+        );
 
-      // 4) Preparar labels y datos para Chart.js
-      //    Si hay 'year', usamos años; si hay 'date', usamos fechas completas
       const useYears = !!series[0].year;
       const labels = series.map((d) => (useYears ? String(d.year) : d.date));
       const prices = series.map((d) => d.price);
-      const minY = Math.max(Number.EPSILON, Math.min(...prices));
-      const maxY = Math.max(...prices);
-      const logTicks = buildLogTicks(minY, maxY);
 
-      // 5) Pintar gráfico (usamos tu helper makeChart)
+      // colores y estilos
       const ctx = canvas.getContext("2d");
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
       gradient.addColorStop(0, "rgba(234,88,12,0.25)"); // orange-600
       gradient.addColorStop(1, "rgba(234,88,12,0.00)");
 
-      // Utilidad: formato compacto bonito para euros (cambia "€" por "$" si tus datos son USD)
-      const CURRENCY = "€";
-      const fmtCompact = (n) => {
-        if (n < 1)
-          return (
-            CURRENCY +
-            new Intl.NumberFormat("es-ES", { maximumFractionDigits: 2 }).format(
-              n
-            )
-          );
-        return (
-          CURRENCY +
-          new Intl.NumberFormat("es-ES", {
-            notation: "compact",
-            maximumFractionDigits: 2,
-          }).format(n)
-        );
+      // ticks X legibles: 6–9 marcas según ancho
+      const step = Math.max(1, Math.ceil(labels.length / 8));
+
+      // Construye opciones base (lineal por defecto)
+      const baseOptions = (scaleType) => ({
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: "index", intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            mode: "index",
+            intersect: false,
+            callbacks: {
+              label: (ctx) => " " + CURRENCY + fmtNum(ctx.parsed.y),
+              title: (items) => items[0]?.label ?? "",
+            },
+          },
+        },
+        scales: {
+          x: {
+            grid: { display: true, color: "rgba(148,163,184,0.12)" },
+            ticks: {
+              autoSkip: false,
+              callback: (val, i) => (i % step === 0 ? labels[i] : ""),
+              maxRotation: 0,
+            },
+          },
+          y: {
+            type: "linear",
+            beginAtZero: false,
+            suggestedMin: Math.min(...prices) * 0.9,
+            suggestedMax: Math.max(...prices) * 1.05,
+            ticks: { callback: (v) => fmtCompact(v) },
+            grid: { color: "rgba(148,163,184,0.18)", drawTicks: false },
+          },
+        },
+      });
+
+      // dataset
+      const data = {
+        labels,
+        datasets: [
+          {
+            label: "BTC",
+            data: prices,
+            borderColor: "rgb(234,88,12)",
+            borderWidth: 2.25,
+            backgroundColor: gradient,
+            fill: true,
+            tension: 0.25,
+            pointRadius: 2,
+            pointHoverRadius: 4,
+          },
+        ],
       };
 
-      // Ticks de potencias de 10 en el rango [min,max]
-      function buildLogTicks(min, max) {
-        const minExp = Math.floor(Math.log10(min));
-        const maxExp = Math.ceil(Math.log10(max));
-        const values = [];
-        for (let e = minExp; e <= maxExp; e++) values.push(Math.pow(10, e));
-        return values;
-      }
-
-      makeChart(
-        canvas,
-        "line",
-        {
-          labels,
-          datasets: [
-            {
-              label: "BTC",
-              data: prices,
-              borderColor: "rgb(234,88,12)",
-              borderWidth: 2.25, // más grosor
-              backgroundColor: gradient,
-              fill: true,
-              tension: 0.25,
-              pointRadius: 0,
-              pointHoverRadius: 3,
-            },
-          ],
-        },
-        {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: (ctx) =>
-                  " " +
-                  CURRENCY +
-                  new Intl.NumberFormat("es-ES", {
-                    maximumFractionDigits: 2,
-                  }).format(ctx.parsed.y),
-              },
-            },
-          },
-          scales: {
-            x: {
-              ticks: { maxRotation: 0 },
-              grid: { display: false },
-            },
-            y: {
-              type: "logarithmic",
-              min: logTicks[0],
-              max: logTicks[logTicks.length - 1],
-              afterBuildTicks: (axis) => {
-                // Forzamos ticks limpios: 10^n
-                axis.ticks = logTicks.map((v) => ({ value: v }));
-              },
-              ticks: {
-                // Evita demasiadas marcas
-                maxTicksLimit: 10,
-                callback: (value) => fmtCompact(value),
-              },
-              grid: {
-                color: "rgba(148,163,184,0.18)",
-                drawTicks: false,
-              },
-            },
-          },
-        }
-      );
+      // pinta (lineal por defecto)
+      let scaleType = "linear";
+      let chart = makeChart(canvas, "line", data, baseOptions(scaleType)); // helper de tu app.js
     })
     .catch((err) => {
-      // Mensaje discreto en caso de error
       const wrapper = canvas.closest(".rounded-2xl") || canvas.parentElement;
       if (wrapper) {
         const note = document.createElement("div");
@@ -318,40 +328,24 @@ function initMobileMenu() {
       console.error(err);
     });
 
-  // --- Helpers ---
-  function formatCurrency(n) {
-    return (
-      "€" + Intl.NumberFormat("es-ES", { maximumFractionDigits: 2 }).format(n)
-    );
-  }
-
-  // Soporta:
-  //  - Columnas: "Año" y "Precio"  → se grafican cierres por año.
-  //  - Columnas: "Fecha"(YYYY-MM-DD) y "Precio" → se grafican fechas (línea densa).
-  //  - Columnas "Year"/"Date"/"Price" en inglés.
-  //  - Si hay datos diarios y quieres agrupar por año, descomenta el bloque de agregación anual.
+  // --- Normalizador de datos de Excel
   function normalizeBTCData(rows) {
     const keys = rows.length ? Object.keys(rows[0]) : [];
     const keyYear = keys.find((k) => /^(año|anio|year)$/i.test(k)) || null;
     const keyDate = keys.find((k) => /fecha|date/i.test(k)) || null;
     const keyPrice = keys.find((k) => /precio|price/i.test(k)) || null;
-
     if (!keyPrice || (!keyYear && !keyDate)) return [];
 
-    // A) Preferimos year+price si existe (tabla anual)
     if (keyYear) {
-      const out = rows
+      return rows
         .map((r) => ({
           year: Number(String(r[keyYear]).trim()),
           price: Number(String(r[keyPrice]).toString().replace(",", ".")),
         }))
         .filter((d) => Number.isFinite(d.year) && Number.isFinite(d.price))
         .sort((a, b) => a.year - b.year);
-
-      return out;
     }
 
-    // B) Si hay fecha diaria/mensual
     const raw = rows
       .map((r) => {
         const d = new Date(r[keyDate]);
@@ -364,22 +358,10 @@ function initMobileMenu() {
       .filter((d) => d.date && d.price != null)
       .sort((a, b) => a.date - b.date);
 
-    // Formato final de etiquetas legibles
-    const out = raw.map((d) => ({
-      date: d.date.toISOString().slice(0, 10), // YYYY-MM-DD
+    return raw.map((d) => ({
+      date: d.date.toISOString().slice(0, 10),
       price: d.price,
     }));
-
-    // --- (Opcional) Agregar por año (tomar último precio del año)
-    // const byYear = new Map();
-    // for (const r of raw) {
-    //   const y = r.date.getFullYear();
-    //   byYear.set(y, r.price); // último del año
-    // }
-    // return Array.from(byYear, ([year, price]) => ({ year, price }))
-    //             .sort((a, b) => a.year - b.year);
-
-    return out;
   }
 })();
 
