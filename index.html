@@ -16,6 +16,9 @@
     <!-- Chart.js (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!-- XLSX (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
     <!-- Favicon y tipografía -->
     <link
       rel="apple-touch-icon"
@@ -205,6 +208,105 @@
               <span class="text-xs text-slate-500">% sobre periodo</span>
             </div>
             <canvas id="chartEstrategias" height="220"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BTC en datos -->
+    <section
+      id="btc-datos"
+      class="border-t border-slate-200/60 bg-white py-16 dark:border-slate-800 dark:bg-slate-950"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2
+              class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
+            >
+              BTC en datos
+            </h2>
+            <p class="mt-2 text-slate-600 dark:text-slate-300">
+              Una mirada cuantitativa a la evolución de Bitcoin desde sus
+              inicios hasta hoy.
+            </p>
+          </div>
+        </div>
+
+        <!-- Rentabilidad desde la fecha de BTC hasta hoy -->
+        <div
+          class="mt-10 rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+        >
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+            Rentabilidad desde la fecha de BTC hasta hoy
+          </h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">
+            Próximamente mostraremos una tabla con los precios históricos y un
+            gráfico de evolución del valor de Bitcoin.
+          </p>
+
+          <!-- Contenedor del gráfico BTC -->
+          <div
+            class="mt-6 rounded-2xl border border-slate-200 p-4 dark:border-slate-700 dark:bg-slate-900"
+          >
+            <div class="flex items-center justify-between gap-3">
+              <h4 class="font-medium text-slate-900 dark:text-white">
+                Precio de BTC (histórico)
+              </h4>
+              <small class="text-slate-500 dark:text-slate-400"
+                >Fuente: tu archivo Excel</small
+              >
+            </div>
+            <div class="mt-3 h-80">
+              <canvas
+                id="chartBTC"
+                aria-label="Gráfico histórico de BTC"
+                role="img"
+              ></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- ¿Por qué es pronto aún para entrar a BTC? -->
+        <div
+          class="mt-10 rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+        >
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+            ¿Por qué es pronto aún para entrar a BTC?
+          </h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">
+            Aunque Bitcoin es cada vez más conocido, el nivel de adopción global
+            sigue siendo bajo. Su límite de suministro (21 millones de monedas)
+            aún no se ha alcanzado, lo que sugiere un margen importante de
+            crecimiento a medida que la demanda se expanda.
+          </p>
+        </div>
+
+        <!-- Poder adquisitivo BTC vs fiat -->
+        <div
+          class="mt-10 rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+        >
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+            Poder adquisitivo de BTC frente a monedas fiat
+          </h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-300">
+            En 2010, un usuario pagó <strong>10.000 BTC</strong> por dos pizzas.
+            Hoy, esa misma cantidad equivaldría a millones de dólares,
+            ilustrando la enorme ganancia en poder adquisitivo que ha tenido
+            Bitcoin frente a las monedas tradicionales.
+          </p>
+
+          <div class="mt-4 flex flex-col sm:flex-row gap-4">
+            <div
+              class="flex-1 rounded-lg bg-slate-50 p-4 text-sm text-slate-700 dark:bg-slate-800 dark:text-slate-300"
+            >
+              <strong>2010:</strong> 10.000 BTC = 2 pizzas familiares 🍕🍕
+            </div>
+            <div
+              class="flex-1 rounded-lg bg-slate-50 p-4 text-sm text-slate-700 dark:bg-slate-800 dark:text-slate-300"
+            >
+              <strong>Hoy:</strong> 10.000 BTC ≈ valor de varias mansiones 🏠💎
+            </div>
           </div>
         </div>
       </div>
