@@ -61,43 +61,50 @@
     <!-- Hero -->
     <section id="hero" class="relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div class="grid items-center gap-10 md:grid-cols-2">
-          <div>
-            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Compra Bitcoin
-              <span class="text-orange-600">en el momento justo.</span>
-            </h1>
-            <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
-              Recibe señales en tu teléfono. Fácil, transparente y sin
-              complicaciones.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#suscripcion"
-                class="rounded-xl bg-orange-600 px-5 py-3 font-semibold text-white shadow hover:bg-orange-500"
-                >Suscribirme</a
-              >
-              <a
-                href="#como-funciona"
-                class="rounded-xl border border-slate-200 px-5 py-3 font-semibold hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
-                >Cómo funciona</a
-              >
-            </div>
-            <p class="mt-3 text-xs text-slate-500">
-              Sin spam. Puedes cancelar cuando quieras.
-            </p>
-          </div>
-          <div
-            class="rounded-2xl border border-slate-200 p-4 shadow-sm dark:border-slate-700"
-          >
-            <canvas
-              id="chartHero"
-              aria-label="Vista previa de actividad"
-              role="img"
-              height="220"
-            ></canvas>
+        <!-- Título + Precio BTC -->
+        <div
+          class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4"
+        >
+          <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            Compra Bitcoin
+            <span class="text-orange-600">en el momento justo.</span>
+          </h1>
+
+          <!-- Precio BTC en tiempo real -->
+          <div class="btc-price-box">
+            <img
+              src="https://cryptofonts.com/img/icons/btc.svg"
+              alt="BTC"
+              class="w-6 h-6"
+            />
+            <span id="btc-price">$...</span>
           </div>
         </div>
+
+        <!-- Subtítulo -->
+        <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+          Recibe señales en tu teléfono. Fácil, transparente y sin
+          complicaciones.
+        </p>
+
+        <!-- Botones -->
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href="#suscripcion"
+            class="rounded-xl bg-orange-600 px-5 py-3 font-semibold text-white shadow hover:bg-orange-500"
+            >Suscribirme</a
+          >
+          <a
+            href="#como-funciona"
+            class="rounded-xl border border-slate-200 px-5 py-3 font-semibold hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
+            >Cómo funciona</a
+          >
+        </div>
+
+        <!-- Aviso -->
+        <p class="mt-3 text-xs text-slate-500">
+          Sin spam. Puedes cancelar cuando quieras.
+        </p>
       </div>
     </section>
 
@@ -357,6 +364,7 @@
 
     <!-- App JS -->
     <script src="js/includes.js" defer></script>
+    <script src="js/precio-btc.js" defer></script>
     <script type="module" src="js/app.js" defer></script>
   </body>
 </html>
