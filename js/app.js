@@ -8,15 +8,8 @@ function initializeDynamicContent() {
   // --- Cookie banner (consentimiento básico) ---
   initCookieBanner();
 
-  // --- Toggle menú móvil ---
-  const menuBtn = document.getElementById("mobileMenuButton");
-  const menu = document.getElementById("mobileMenu");
-
-  if (menuBtn && menu) {
-    menuBtn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-  }
+  // --- Menú móvil ---
+  initMobileMenu();
 }
 
 // --- Chart helper ---
@@ -147,6 +140,17 @@ function initCookieBanner() {
   } catch {
     // si localStorage no está disponible, no mostramos banner
   }
+}
+
+function initMobileMenu() {
+  const menuBtn = document.getElementById("mobileMenuButton");
+  const menu = document.getElementById("mobileMenu");
+
+  if (!menuBtn || !menu) return;
+
+  menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
 }
 
 // Ejecutar banner tras cargar el DOM
