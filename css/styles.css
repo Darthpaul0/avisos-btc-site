@@ -4,3 +4,16 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 /* Efecto glass del header sticky */
 .glass { backdrop-filter: blur(12px); background: rgba(255,255,255,0.6); }
 .dark .glass { background: rgba(17,24,39,0.6); }
+
+/* --- Animación para el menú móvil --- */
+.menu-transition {
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+.menu-visible {
+  max-height: 1000px; /* suficientemente alto para mostrar el contenido */
+  opacity: 1;
+}

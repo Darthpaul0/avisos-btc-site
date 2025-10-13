@@ -149,7 +149,7 @@ function initMobileMenu() {
   if (!menuBtn || !menu) return;
 
   menuBtn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+    menu.classList.toggle("menu-visible");
   });
 }
 
