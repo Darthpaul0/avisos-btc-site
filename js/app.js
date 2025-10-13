@@ -10,6 +10,8 @@ import {
   renderAciertoChart,
   renderEstrategiasChart,
   initBTCChart,
+  renderPctPositiveChart,
+  renderMeanReturnChart,
 } from "./charts.js";
 
 let booted = false;
@@ -31,8 +33,8 @@ function boot() {
 
   // Charts (descomenta si procede)
   renderHeroMiniChart("chartHero");
-  renderAciertoChart("chartAcierto");
-  renderEstrategiasChart("chartEstrategias");
+  renderPctPositiveChart(); // chartAcierto
+  renderMeanReturnChart();
   initBTCChart({ canvasId: "chartBTC", xlsxUrl: "/data/btc_price.xlsx" });
 }
 

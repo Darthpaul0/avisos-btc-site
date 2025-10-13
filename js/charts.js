@@ -293,3 +293,118 @@ export function normalizeBTCData(rows) {
     price: d.price,
   }));
 }
+
+export function renderPctPositiveChart(
+  id = "chartAcierto",
+  xlsxUrl = "/data/avisosbtc_metrics.xlsx"
+) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+
+  fetch(xlsxUrl)
+    .then((res) => res.arrayBuffer())
+    .then((buf) => {
+      const wb = XLSX.read(buf, { type: "array" });
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(sheet, { defval: null });
+
+      const data = rows.filter((r) => r.year && r.pct_positive != null);
+      const labels = data.map((r) => String(r.year));
+      const values = data.map((r) => Number(r.pct_positive));
+      const signals = data.map((r) => Number(r.n_signals));
+
+      makeChart(
+        canvas,
+        "line",
+        {
+          labels,
+          datasets: [
+            {
+              label: "Acierto %",
+              data: values,
+              borderColor: "#3B82F6",
+              backgroundColor: "rgba(59, 130, 246, 0.25)",
+              fill: true,
+              tension: 0.3,
+              pointRadius: 5,
+              pointHoverRadius: 7,
+            },
+          ],
+        },
+        {
+          plugins: {
+            legend: { display: true },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `Acierto: ${ctx.parsed.y}%`,
+                afterLabel: (ctx) => `Señales: ${signals[ctx.dataIndex]}`,
+              },
+            },
+          },
+          scales: {
+            y: {
+              min: 0,
+              max: 100,
+              ticks: { callback: (v) => `${v}%` },
+            },
+          },
+        }
+      );
+    })
+    .catch(console.error);
+}
+
+export function renderMeanReturnChart(
+  id = "chartEstrategias",
+  xlsxUrl = "/data/avisosbtc_metrics.xlsx"
+) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+
+  fetch(xlsxUrl)
+    .then((res) => res.arrayBuffer())
+    .then((buf) => {
+      const wb = XLSX.read(buf, { type: "array" });
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(sheet, { defval: null });
+
+      const data = rows.filter((r) => r.year && r.mean_ret_per_signal != null);
+      const labels = data.map((r) => String(r.year));
+      const values = data.map((r) => Number(r.mean_ret_per_signal));
+      const signals = data.map((r) => Number(r.n_signals));
+
+      makeChart(
+        canvas,
+        "bar",
+        {
+          labels,
+          datasets: [
+            {
+              label: "Rendimiento %",
+              data: values,
+              backgroundColor: "rgba(34,197,94,0.75)",
+              borderColor: "#22C55E",
+              borderWidth: 1,
+            },
+          ],
+        },
+        {
+          plugins: {
+            legend: { display: true },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `Rentabilidad: ${ctx.parsed.y.toFixed(2)}%`,
+                afterLabel: (ctx) => `Señales: ${signals[ctx.dataIndex]}`,
+              },
+            },
+          },
+          scales: {
+            y: {
+              ticks: { callback: (v) => `${v}%` },
+            },
+          },
+        }
+      );
+    })
+    .catch(console.error);
+}
