@@ -151,6 +151,22 @@ function initMobileMenu() {
   menuBtn.addEventListener("click", () => {
     menu.classList.toggle("menu-visible");
   });
+
+  // Cerrar menú y hacer scroll suave al hacer clic en enlaces internos
+  menu
+    .querySelectorAll("a[href^='#'], a[href*='index.html#']")
+    .forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const targetId = link.getAttribute("href").split("#")[1];
+        const targetEl = document.getElementById(targetId);
+
+        if (targetEl) {
+          e.preventDefault(); // evitar salto brusco
+          menu.classList.remove("menu-visible"); // cerrar menú
+          targetEl.scrollIntoView({ behavior: "smooth" }); // scroll suave
+        }
+      });
+    });
 }
 
 // Ejecutar banner tras cargar el DOM
