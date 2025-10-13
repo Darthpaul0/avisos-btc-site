@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Wait for all includes to finish loading
   Promise.all([headerPromise, footerPromise]).then(() => {
-    // Now that the HTML is loaded, run the scripts that depend on it
+    // 🔔 avisa al resto de la app que el header/footer ya están en el DOM
+    document.dispatchEvent(new CustomEvent("includes:ready"));
+
     if (typeof initializeDynamicContent === "function") {
       initializeDynamicContent();
     }
