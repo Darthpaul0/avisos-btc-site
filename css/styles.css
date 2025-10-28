@@ -3,6 +3,12 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 html {
   scroll-behavior: smooth;
 }
+html {
+  font-family: "Chakra Petch", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 /* Efecto glass del header sticky */
 .glass { backdrop-filter: blur(12px); background: rgba(255,255,255,0.6); }
 .dark .glass { background: rgba(17,24,39,0.6); }
