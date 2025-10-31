@@ -3,140 +3,310 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FAQ — Avisos BTC</title>
+    <title>Avisos BTC — Preguntas frecuentes</title>
     <meta
       name="description"
-      content="Preguntas frecuentes sobre Avisos BTC: alertas, suscripciones, pagos y privacidad."
+      content="FAQ de Avisos BTC: precios, cómo funcionan los avisos, alta/baja, reembolsos, facturación, privacidad y soporte."
     />
+
+    <!-- Tailwind (opcional si ya lo cargas globalmente) -->
     <script src="../js/tw.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fuente y estilos (rutas relativas) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
-  <body
-    class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100"
-  >
+  <body class="bg-slate-950 text-slate-100">
+    <!-- Header compartido -->
     <header
       id="main-header"
-      class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 glass"
+      class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/60 glass"
     ></header>
 
-    <main class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
-      <h1 class="text-3xl font-extrabold">Preguntas frecuentes</h1>
-      <p class="mt-2 text-slate-600 dark:text-slate-300">
-        Respuestas directas a las dudas más comunes.
-      </p>
+    <main class="py-16">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-extrabold">Preguntas frecuentes</h1>
+        <p class="mt-2 text-slate-300">
+          Resolvemos las dudas más habituales sobre Avisos BTC.
+        </p>
 
-      <section
-        class="mt-8 divide-y divide-slate-200 rounded-2xl border border-slate-200 dark:divide-slate-800 dark:border-slate-700"
-      >
-        <details class="group p-6">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between font-medium"
-          >
-            ¿Qué es Avisos BTC?
-            <span class="ml-4 transition group-open:rotate-180">⌄</span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-            Servicio de avisos y métricas sobre Bitcoin con señales
-            automatizadas y contexto.
-          </p>
-        </details>
-        <details class="group p-6">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between font-medium"
-          >
-            ¿Cómo recibo los avisos?
-            <span class="ml-4 transition group-open:rotate-180">⌄</span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-            Por Telegram.
-          </p>
-        </details>
-        <details class="group p-6">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between font-medium"
-          >
-            ¿Hay prueba o plan gratuito?
-            <span class="ml-4 transition group-open:rotate-180">⌄</span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-            Podemos ofrecer un periodo de prueba o plan limitado. Lo
-            detallaremos en Precios.
-          </p>
-        </details>
-        <details class="group p-6">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between font-medium"
-          >
-            ¿Puedo cancelar cuando quiera?
-            <span class="ml-4 transition group-open:rotate-180">⌄</span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-            Sí, desde el portal de cliente de Stripe. El acceso continúa hasta
-            el fin del periodo pagado.
-          </p>
-        </details>
-        <details class="group p-6">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between font-medium"
-          >
-            ¿Guardáis datos de tarjeta?
-            <span class="ml-4 transition group-open:rotate-180">⌄</span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-            No. Los datos de pago se gestionan en Stripe. Nosotros almacenamos
-            sólo identificadores de suscripción/cliente.
-          </p>
-        </details>
-        <details class="group p-6">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between font-medium"
-          >
-            ¿Ofrecéis asesoramiento financiero?
-            <span class="ml-4 transition group-open:rotate-180">⌄</span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-            No. La información es educativa y automatizada. No es una
-            recomendación de inversión.
-          </p>
-        </details>
-        <details class="group p-6">
-          <summary
-            class="flex cursor-pointer list-none items-center justify-between font-medium"
-          >
-            ¿Qué datos personales tratáis?
-            <span class="ml-4 transition group-open:rotate-180">⌄</span>
-          </summary>
-          <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
-            Correo, preferencias de entrega, uso agregado y datos de facturación
-            en Stripe. Más en la
-            <a href="privacidad.html" class="text-orange-600 underline"
-              >Política de privacidad</a
-            >.
-          </p>
-        </details>
-      </section>
+        <div
+          class="mt-8 divide-y divide-slate-800 rounded-2xl border border-slate-800"
+        >
+          <!-- 1) Qué es -->
+          <details class="group p-6" open>
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Qué es Avisos BTC?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Avisos BTC es un servicio que envía
+              <strong>señales automáticas sobre Bitcoin</strong> con métricas
+              simples y contexto para ayudarte a decidir. No es asesoramiento
+              financiero.
+            </p>
+          </details>
 
-      <p class="mt-6 text-xs text-slate-500">
-        ¿No encuentras tu respuesta? Escríbenos a
-        <a
-          class="text-orange-600 underline"
-          href="mailto:hola@avisosbtc.example"
-          >hola@avisosbtc.example</a
-        >.
-      </p>
+          <!-- 2) Precios / qué incluye -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Cuánto cuesta y qué incluye cada plan?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Ofrecemos plan <strong>Mensual (10€)</strong> y
+              <strong>Anual (100€)</strong>. Ambos incluyen acceso al canal
+              privado de avisos y a las métricas publicadas. El plan anual es
+              más económico a 12 meses.
+            </p>
+          </details>
+
+          <!-- 3) Cómo recibo los avisos -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Cómo recibo los avisos?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Recibirás las señales en nuestro
+              <strong>canal privado de Telegram</strong>. Está previsto añadir
+              entrega por <strong>email</strong> más adelante. La notificación
+              suele llegar en <strong>segundos</strong> desde que se dispara.
+            </p>
+          </details>
+
+          <!-- 4) Prueba / plan gratuito -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Hay prueba o plan gratuito?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              De momento <strong>no</strong> ofrecemos periodo de prueba. Puedes
+              suscribirte por un mes y cancelar cuando quieras.
+            </p>
+          </details>
+
+          <!-- 5) Reembolsos -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Hacéis reembolsos?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              No realizamos reembolsos por periodos ya iniciados. Si detectas un
+              <strong>cobro por error</strong>, escríbenos y lo revisamos para
+              <strong>reembolso íntegro</strong> si procede.
+            </p>
+          </details>
+
+          <!-- 6) Alta/baja/cambio de plan y método de pago (Stripe) -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Cómo me doy de alta/baja o cambio de plan y método de pago?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Gestiona todo desde el
+              <strong>Portal de Cliente de Stripe</strong>: alta, baja, cambio
+              de plan y actualización de tarjeta. El cambio de plan se aplica al
+              siguiente ciclo (o prorratea según configuración).
+            </p>
+          </details>
+
+          <!-- 7) ¿Guardáis datos de tarjeta? -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Guardáis datos de tarjeta?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              No. Los datos de pago se procesan y almacenan de forma segura por
+              <strong>Stripe</strong>. Nosotros no accedemos a los números de
+              tarjeta.
+            </p>
+          </details>
+
+          <!-- 8) Facturas/recibos -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Recibiré factura o recibo?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Stripe envía <strong>recibos por email</strong> automáticamente.
+              Puedes descargarlos también desde el Portal de Cliente.
+            </p>
+          </details>
+
+          <!-- 9) Fiabilidad / métricas / disclaimer -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Qué fiabilidad tienen las señales? ¿Ofrecéis asesoramiento?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Publicamos <strong>métricas transparentes</strong> (acierto,
+              drawdown, etc.). El rendimiento pasado no garantiza resultados
+              futuros y <strong>no</strong> ofrecemos asesoramiento financiero.
+            </p>
+          </details>
+
+          <!-- 10) Retrasos / incidencias -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Puede haber retrasos o caídas del servicio?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Lo habitual es entrega en segundos. De forma puntual puede haber
+              demoras por incidencias de <strong>Telegram</strong>
+              o del proveedor. Cuando ocurre, lo notificamos en el canal.
+            </p>
+          </details>
+
+          <!-- 11) Datos personales / privacidad -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Qué datos personales tratáis y con qué base legal?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Tratamos los datos necesarios para prestar el servicio (p. ej.,
+              email y estado de suscripción). El sitio se hospeda en
+              <strong>GitHub Pages</strong>. Consulta la
+              <a href="privacidad.html" class="underline text-orange-400"
+                >Política de privacidad</a
+              >
+              para más detalle y ejercicio de derechos (RGPD).
+            </p>
+          </details>
+
+          <!-- 12) Soporte / contacto -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Cómo contacto con soporte y en qué horario respondéis?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Escríbenos a
+              <a
+                href="mailto:hola@avisosbtc.com"
+                class="underline text-orange-400"
+                >hola@avisosbtc.com</a
+              >. Respondemos normalmente en <strong>24–48 h laborables</strong>.
+            </p>
+          </details>
+
+          <!-- 13) Enlace de Telegram no recibido / caducado -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              No he recibido el enlace de Telegram o ha caducado
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              El enlace único suele <strong>caducar a las 24 h</strong>. Si no
+              te llegó o caducó, respóndenos al email de bienvenida o escribe a
+              <a
+                href="mailto:hola@avisosbtc.com"
+                class="underline text-orange-400"
+                >hola@avisosbtc.com</a
+              >
+              y te generamos otro.
+            </p>
+          </details>
+
+          <!-- 14) Varios dispositivos -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Puedo usarlo en varios dispositivos?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Sí, puedes acceder al canal desde
+              <strong>todos tus dispositivos</strong> con tu misma cuenta de
+              Telegram.
+            </p>
+          </details>
+
+          <!-- 15) ¿Qué pasa al cancelar? -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              ¿Qué ocurre al cancelar la suscripción?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Mantendrás acceso hasta el
+              <strong>final del periodo pagado</strong>. Después, el sistema
+              revoca el acceso al canal.
+            </p>
+          </details>
+
+          <!-- 16) Perdí acceso a mi cuenta de Telegram -->
+          <details class="group p-6">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between font-semibold"
+            >
+              Perdí el acceso a mi cuenta de Telegram, ¿qué hago?
+              <span class="ml-4 transition group-open:rotate-180">🔽</span>
+            </summary>
+            <p class="mt-3 text-slate-300">
+              Escríbenos desde el <strong>email de suscripción</strong>. Tras
+              verificar la identidad, podemos reemitirte el enlace de acceso a
+              tu nueva cuenta.
+            </p>
+          </details>
+        </div>
+
+        <p class="mt-6 text-xs text-slate-500">
+          * El rendimiento pasado no garantiza resultados futuros. No es una
+          recomendación de inversión.
+        </p>
+      </div>
     </main>
 
+    <!-- Footer compartido -->
     <footer
       id="main-footer"
-      class="border-t border-slate-200/60 bg-white py-10 text-sm dark:border-slate-800 dark:bg-slate-950"
+      class="bg-slate-950 border-t border-slate-800 py-10 text-sm"
     ></footer>
 
+    <!-- Scripts compartidos -->
     <script src="../js/includes.js" defer></script>
-    <script type="module" src="../js/app.js" defer></script>
+    <script src="../js/app.js" defer></script>
   </body>
 </html>
