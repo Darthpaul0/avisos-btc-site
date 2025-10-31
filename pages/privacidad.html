@@ -6,109 +6,187 @@
     <title>Política de privacidad — Avisos BTC</title>
     <meta
       name="description"
-      content="Política de privacidad de Avisos BTC (RGPD/LOPDGDD)."
+      content="Política de privacidad de Avisos BTC conforme al RGPD y la LOPDGDD."
     />
     <script src="../js/tw.config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
+
   <body
-    class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100"
+    class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans leading-relaxed"
   >
     <header
       id="main-header"
-      class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 glass"
+      class="sticky top-0 z-50 border-b border-slate-200/60 dark:border-slate-700/60 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md"
     ></header>
 
-    <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
-      <h1 class="text-3xl font-extrabold">Política de privacidad</h1>
-      <p class="mt-2 text-slate-600 dark:text-slate-300">
-        Última actualización: <span id="pp-date"></span>
-      </p>
+    <main class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center mb-10">
+        <h1 class="text-4xl font-extrabold tracking-tight">
+          Política de privacidad
+        </h1>
+        <p class="mt-3 text-slate-600 dark:text-slate-400 text-lg">
+          Cómo tratamos y protegemos tus datos personales en Avisos BTC
+        </p>
+        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+          Última actualización: <span id="pp-date"></span>
+        </p>
+      </div>
 
-      <section class="prose prose-slate dark:prose-invert max-w-none mt-8">
-        <h2>1. Responsable del tratamiento</h2>
+      <section
+        class="prose prose-slate prose-lg dark:prose-invert max-w-none space-y-8"
+      >
+        <h2 class="text-2xl font-bold text-amber-600">
+          1. Responsable del tratamiento
+        </h2>
         <p>
           <strong>Nombre comercial:</strong> Avisos BTC<br />
-          <strong>Contacto:</strong>
-          <a href="mailto:hola@avisosbtc.example">hola@avisosbtc.example</a
+          <strong>Correo de contacto:</strong>
+          <a
+            href="mailto:hola@avisosbtc.com"
+            class="text-amber-600 hover:underline"
+            >hola@avisosbtc.com</a
           ><br />
           <strong>País:</strong> España
         </p>
 
-        <h2>2. Datos que tratamos</h2>
-        <ul>
-          <li>Cuenta: correo electrónico, usuario de telegram.</li>
+        <h2 class="text-2xl font-bold text-amber-600">
+          2. Datos personales que tratamos
+        </h2>
+        <ul class="list-disc list-inside space-y-1">
           <li>
-            Facturación: a través de Stripe. No almacenamos datos completos de
-            tarjeta.
+            <strong>Cuenta:</strong> correo electrónico y nombre de usuario en
+            Telegram.
           </li>
-          <li>Uso: métricas agregadas y eventos técnicos.</li>
-          <li>Soporte: mensajes enviados por email o formularios.</li>
-        </ul>
-
-        <h2>3. Finalidades y bases jurídicas</h2>
-        <ul>
-          <li>Prestación del servicio (contrato).</li>
-          <li>Facturación y obligaciones legales (legal + contrato).</li>
           <li>
-            Comunicaciones del servicio (interés legítimo/consentimiento).
+            <strong>Facturación:</strong> gestionada por Stripe. No almacenamos
+            datos completos de tarjeta.
           </li>
-          <li>Mejora de producto (interés legítimo, datos agregados).</li>
-          <li>Cumplimiento normativo (obligación legal).</li>
-        </ul>
-
-        <h2>4. Plazos de conservación</h2>
-        <p>
-          Mientras la cuenta esté activa y, tras su cierre, durante los plazos
-          exigidos por ley y para atender posibles reclamaciones.
-        </p>
-
-        <h2>5. Destinatarios</h2>
-        <ul>
-          <li>Stripe (pagos y suscripciones).</li>
-          <li>Proveedor de email transaccional (p. ej., Postmark/Resend).</li>
-          <li>Hosting (p. ej., Vercel).</li>
           <li>
-            Analítica (p. ej., PostHog) con datos agregados y consentimiento
-            cuando aplique.
+            <strong>Uso:</strong> información técnica agregada sobre accesos,
+            errores y métricas anónimas.
+          </li>
+          <li>
+            <strong>Soporte:</strong> mensajes enviados por correo electrónico o
+            formularios de contacto.
           </li>
         </ul>
 
-        <h2>6. Transferencias internacionales</h2>
+        <h2 class="text-2xl font-bold text-amber-600">
+          3. Finalidades y bases jurídicas
+        </h2>
+        <ul class="list-disc list-inside space-y-1">
+          <li>
+            Prestación del servicio de suscripción (ejecución de contrato).
+          </li>
+          <li>
+            Gestión de pagos y obligaciones fiscales (obligación legal y
+            contractual).
+          </li>
+          <li>
+            Comunicaciones relacionadas con el servicio (interés legítimo o
+            consentimiento).
+          </li>
+          <li>
+            Análisis y mejora del producto mediante datos agregados (interés
+            legítimo).
+          </li>
+          <li>
+            Cumplimiento de requerimientos legales o de autoridades competentes.
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-amber-600">
+          4. Plazos de conservación
+        </h2>
         <p>
-          Si existen, se amparan en Cláusulas Contractuales Tipo u otras
-          garantías adecuadas del RGPD.
+          Los datos se conservarán mientras la cuenta del usuario esté activa y,
+          tras su cierre, durante los plazos exigidos por la normativa vigente
+          para atender posibles reclamaciones o requerimientos legales.
         </p>
 
-        <h2>7. Derechos</h2>
+        <h2 class="text-2xl font-bold text-amber-600">
+          5. Destinatarios y encargados del tratamiento
+        </h2>
         <p>
-          Acceso, rectificación, supresión, oposición, limitación y portabilidad
-          escribiendo a
-          <a href="mailto:hola@avisosbtc.example">hola@avisosbtc.example</a>.
-          Reclamaciones ante la AEPD.
+          Avisos BTC utiliza proveedores que actúan como encargados del
+          tratamiento:
+        </p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Stripe Payments Europe Ltd. (procesamiento de pagos).</li>
+          <li>
+            GitHub, Inc., como proveedor de alojamiento y despliegue del sitio
+            web.
+          </li>
+          <li>
+            Telegram FZ-LLC, para la comunicación de avisos a los suscriptores.
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-amber-600">
+          6. Transferencias internacionales
+        </h2>
+        <p>
+          Algunos proveedores pueden estar ubicados fuera del Espacio Económico
+          Europeo (EEE). En esos casos, las transferencias se amparan en
+          <em>Cláusulas Contractuales Tipo</em> aprobadas por la Comisión
+          Europea u otras garantías adecuadas conforme al RGPD.
         </p>
 
-        <h2 id="disclaimer">8. Cambios</h2>
+        <h2 class="text-2xl font-bold text-amber-600">
+          7. Derechos de los usuarios
+        </h2>
         <p>
-          Actualizaremos esta política cuando proceda. Notificaremos cambios
-          relevantes.
+          Puedes ejercer tus derechos de acceso, rectificación, supresión,
+          oposición, limitación del tratamiento y portabilidad escribiendo a
+          <a
+            href="mailto:hola@avisosbtc.com"
+            class="text-amber-600 hover:underline"
+            >hola@avisosbtc.com</a
+          >.
+        </p>
+        <p>
+          También puedes presentar una reclamación ante la Agencia Española de
+          Protección de Datos:
+          <a
+            href="https://www.aepd.es"
+            target="_blank"
+            rel="noopener"
+            class="text-amber-600 hover:underline"
+            >www.aepd.es</a
+          >.
         </p>
 
-        <h2>9. Cookies</h2>
+        <h2 class="text-2xl font-bold text-amber-600">
+          8. Cambios en la política
+        </h2>
         <p>
-          Usamos cookies esenciales. Las analíticas/marketing se activarán sólo
-          con tu consentimiento mediante banner.
+          Esta política podrá modificarse para reflejar cambios legales o
+          funcionales del servicio. En caso de modificaciones sustanciales, se
+          notificará a los usuarios por medios razonables.
+        </p>
+
+        <h2 class="text-2xl font-bold text-amber-600">9. Cookies</h2>
+        <p>
+          Este sitio utiliza únicamente cookies técnicas necesarias para su
+          funcionamiento. No empleamos cookies de análisis ni de marketing sin
+          tu consentimiento expreso mediante el banner de configuración.
         </p>
       </section>
 
-      <p class="mt-8 text-xs text-slate-500">
-        Este texto es orientativo; recomendamos revisión jurídica profesional.
-      </p>
+      <div
+        class="mt-12 border-t border-slate-200 dark:border-slate-700 pt-6 text-center"
+      >
+        <p class="text-sm text-slate-500 dark:text-slate-400">
+          © <span id="pp-year"></span> Avisos BTC. Todos los derechos
+          reservados.
+        </p>
+      </div>
     </main>
 
     <footer
@@ -126,6 +204,7 @@
       ).textContent = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(
         d.getDate()
       )}`;
+      document.getElementById("pp-year").textContent = d.getFullYear();
     </script>
   </body>
 </html>
