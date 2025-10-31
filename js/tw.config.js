@@ -8,7 +8,7 @@ tailwind.config = {
     extend: {
       fontFamily: {
         sans: [
-          "Inter",
+          "Chakra Petch",
           "ui-sans-serif",
           "system-ui",
           "-apple-system",
