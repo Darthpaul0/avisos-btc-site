@@ -38,7 +38,6 @@ export function initCookieBanner() {
       JSON.stringify({ status: "accepted", timestamp: Date.now() })
     );
     banner.classList.add("hidden");
-    enableAnalytics();
   });
 
   rejectBtn?.addEventListener("click", () => {
