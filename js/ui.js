@@ -11,32 +11,43 @@ export function setDynamicYear(id = "year") {
 }
 
 export function initCookieBanner() {
-  try {
-    if (localStorage.getItem("cookieConsent")) return;
+  const banner = document.getElementById("cookie-banner");
+  if (!banner) return;
 
-    const banner = document.createElement("div");
-    banner.className =
-      "fixed bottom-0 inset-x-0 z-50 bg-slate-900 text-white text-sm p-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between";
-    banner.innerHTML = `
-      <span>Usamos cookies esenciales y, con tu consentimiento, analíticas.</span>
-      <div class="flex gap-2">
-        <button id="acceptCookies" class="bg-orange-600 px-3 py-1 rounded">Aceptar</button>
-        <button id="dismissCookies" class="bg-slate-700 px-3 py-1 rounded">Ahora no</button>
-      </div>
-    `;
-    document.body.appendChild(banner);
+  const consentData = JSON.parse(
+    localStorage.getItem("cookieConsent") || "null"
+  );
+  const now = Date.now();
+  const sixMonths = 1000 * 60 * 60 * 24 * 180; // 180 días
 
-    document.getElementById("acceptCookies")?.addEventListener("click", () => {
-      localStorage.setItem("cookieConsent", "true");
-      banner.remove();
-      // aquí puedes inicializar analítica si la usas
-    });
-    document
-      .getElementById("dismissCookies")
-      ?.addEventListener("click", () => banner.remove());
-  } catch {
-    /* no localStorage? sin banner */
+  // Si ya hay consentimiento y no ha caducado, no mostramos el banner
+  if (consentData && now - consentData.timestamp < sixMonths) {
+    if (consentData.status === "accepted") enableAnalytics();
+    return;
   }
+
+  // Si no hay consentimiento o ha caducado, mostrar el banner
+  banner.classList.remove("hidden");
+
+  const acceptBtn = document.getElementById("cookie-accept");
+  const rejectBtn = document.getElementById("cookie-reject");
+
+  acceptBtn?.addEventListener("click", () => {
+    localStorage.setItem(
+      "cookieConsent",
+      JSON.stringify({ status: "accepted", timestamp: Date.now() })
+    );
+    banner.classList.add("hidden");
+    enableAnalytics();
+  });
+
+  rejectBtn?.addEventListener("click", () => {
+    localStorage.setItem(
+      "cookieConsent",
+      JSON.stringify({ status: "rejected", timestamp: Date.now() })
+    );
+    banner.classList.add("hidden");
+  });
 }
 
 // /js/ui.js (solo esta función)
