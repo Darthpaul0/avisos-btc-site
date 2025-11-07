@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const cookiesPromise = loadHtml(
     "#cookie-banner-container",
-    `${prefix}/_includes/cookies.html`
+    `${prefix}/_includes/cookies_simple.html`
   );
 
   // Wait for all includes to finish loading
