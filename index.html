@@ -1,43 +1,350 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avisos BTC - En construcción</title>
-  <style>
-    body {
-      background-color: #0d1117;
-      color: #f0f0f0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .container {
-      text-align: center;
-    }
-    img {
-      width: 120px;
-      image-rendering: pixelated;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.2em;
-      color: #bbb;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <img src="assets/dark_btc.png" alt="Logo BTC">
-    <h1>🚧 Avisos BTC</h1>
-    <p>Web en construcción... pronto disponible.</p>
-  </div>
-</body>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Avisos BTC — Señales claras.</title>
+    <meta
+      name="description"
+      content="Avisos BTC: alertas de Bitcoin claras, métricas transparentes y gráficos simples. ¡Suscríbete!"
+    />
+
+    <script src="js/tw.config.js"></script>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- XLSX (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+    <!-- Favicon y tipografía -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="bg-slate-950 text-slate-100">
+    <!-- Topbar / Nav -->
+    <header
+      id="main-header"
+      class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/60 glass"
+    ></header>
+
+    <!-- Hero -->
+    <section id="hero" class="bg-slate-900 py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-start gap-10">
+          <!-- Columna izquierda: texto -->
+          <div class="lg:w-1/2">
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+              Compra Bitcoin
+              <span class="text-orange-600">en el momento justo.</span>
+            </h1>
+
+            <p class="mt-4 text-lg text-slate-300">
+              Recibe señales en tu teléfono. Fácil, transparente y sin
+              complicaciones.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#suscripcion"
+                class="rounded-xl bg-orange-600 px-5 py-3 font-semibold text-white shadow hover:bg-orange-500"
+                >Suscribirme</a
+              >
+              <a
+                href="#como-funciona"
+                class="rounded-xl border border-slate-700 px-5 py-3 font-semibold hover:bg-slate-800"
+                >Cómo funciona</a
+              >
+            </div>
+
+            <p class="mt-3 text-xs text-slate-500">
+              Sin spam. Puedes cancelar cuando quieras.
+            </p>
+          </div>
+
+          <!-- Columna derecha: gráfico + precio -->
+          <div class="lg:w-1/2 flex flex-col items-center">
+            <img
+              src="/assets/chart.png"
+              alt="Gráfico señales BTC"
+              class="w-full max-w-2xl rounded-xl border border-slate-800 shadow-lg"
+            />
+
+            <div
+              class="mt-4 flex items-center gap-2 bg-slate-800 text-green-400 font-semibold px-4 py-2 rounded-xl shadow"
+            >
+              <img
+                src="https://cryptofonts.com/img/icons/btc.svg"
+                alt="BTC"
+                class="w-5 h-5"
+              />
+              <span id="btc-price">€...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resultados -->
+    <section id="resultados" class="bg-slate-950 py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-bold">Resultados</h2>
+            <p class="mt-2 text-slate-300">
+              ¿Qué tal ha funcionado el sistema?
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
+          <!-- Gráfico 1 -->
+          <div class="overflow-x-auto">
+            <div
+              class="min-w-[320px] rounded-2xl border border-slate-700 p-4 shadow-sm"
+            >
+              <div class="mb-2 flex items-center justify-between">
+                <h3 class="font-semibold">% de señales ganadoras por año</h3>
+                <span class="text-xs text-slate-400"
+                  >Métrica histórica desde 2014</span
+                >
+              </div>
+              <canvas id="chartAcierto" height="220"></canvas>
+            </div>
+            <p class="mt-3 text-xs text-slate-500">
+              Para este cálculo, consideramos un acierto que el precio a final
+              de año sea superior al precio de entrada de la señal.
+            </p>
+          </div>
+
+          <!-- Gráfico 2 -->
+          <div class="overflow-x-auto">
+            <div
+              class="min-w-[320px] rounded-2xl border border-slate-700 p-4 shadow-sm"
+            >
+              <div class="mb-2 flex items-center justify-between">
+                <h3 class="font-semibold">Rentabilidad media por señal</h3>
+                <span class="text-xs text-slate-400"
+                  >% medio por operación</span
+                >
+              </div>
+              <canvas id="chartEstrategias" height="220"></canvas>
+            </div>
+          </div>
+        </div>
+        <p class="mt-2 text-slate-300">
+          <strong
+            >Una sola operación buena cubre más que de sobra el coste de la
+            suscripción.</strong
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Cómo funciona -->
+    <section
+      id="como-funciona"
+      class="bg-slate-900 border-t border-slate-800 py-16"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold">Cómo funciona</h2>
+        <p class="mt-2 text-slate-300">Tres pasos para empezar hoy:</p>
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <div class="rounded-2xl border border-slate-700 p-6 shadow-sm">
+            <div class="text-2xl">1️⃣</div>
+            <h3 class="mt-3 font-semibold">Elige tu plan</h3>
+            <p class="mt-2 text-sm text-slate-300">
+              Selecciona el plan que más te interesa.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-slate-700 p-6 shadow-sm">
+            <div class="text-2xl">2️⃣</div>
+            <h3 class="mt-3 font-semibold">Recibe avisos en tiempo real</h3>
+            <p class="mt-2 text-sm text-slate-300">
+              En nuestro canal privado de Telegram.
+            </p>
+          </div>
+          <div class="rounded-2xl border border-slate-700 p-6 shadow-sm">
+            <div class="text-2xl">3️⃣</div>
+            <h3 class="mt-3 font-semibold">Actúa</h3>
+            <p class="mt-2 text-sm text-slate-300">
+              Opera con la tranquilidad y confianza que da un sistema probado.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BTC en datos -->
+    <section
+      id="btc-datos"
+      class="bg-slate-950 border-t border-slate-800 py-16"
+    >
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-bold tracking-tight">Bitcoin en datos</h2>
+            <p class="mt-2 text-slate-300">
+              Una mirada cuantitativa a la evolución de Bitcoin desde sus
+              inicios hasta hoy.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="mt-10 rounded-2xl border border-slate-700 p-6 shadow-sm bg-slate-900"
+        >
+          <h3 class="text-lg font-semibold">Evolución del precio de BTCEUR</h3>
+          <p class="mt-2 text-slate-300">
+            El precio de Bitcoin ha experimentado un crecimiento exponencial
+            desde su creación en 2009. En esta gráfica, se puede observar su
+            valor con respecto al Euro a final de cada año.
+          </p>
+          <div
+            class="mt-6 rounded-2xl border border-slate-700 p-4 bg-slate-900"
+          >
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <h4 class="font-medium">BTC/EUR</h4>
+              <span id="btcHoverReadout" class="text-xs text-slate-400">—</span>
+            </div>
+            <div class="mt-3 h-80">
+              <canvas
+                id="chartBTC"
+                aria-label="Gráfico histórico de BTC"
+                role="img"
+              ></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-10 rounded-2xl border border-slate-700 p-6 shadow-sm bg-slate-900"
+        >
+          <h3 class="text-lg font-semibold">
+            ¿Por qué es pronto aún para entrar a BTC?
+          </h3>
+          <p class="mt-2 text-slate-300">
+            Aunque Bitcoin es cada vez más conocido, el nivel de adopción global
+            sigue siendo bajo. Según las estimaciones más optimistas, menos del
+            1% de la población mundial posee algo de BTC.
+          </p>
+          <p class="mt-2 text-slate-300">
+            Además, existe un límite máximo de 21 millones de BTC que pueden ser
+            minados, lo que lo convierte en un activo deflacionario. A
+            diferencia del dinero fiat, que puede ser impreso en grandes
+            cantidades por los bancos centrales, la oferta de Bitcoin es fija y
+            predecible.
+          </p>
+        </div>
+
+        <div
+          class="mt-10 rounded-2xl border border-slate-700 p-6 shadow-sm bg-slate-900"
+        >
+          <h3 class="text-lg font-semibold">
+            Poder adquisitivo de BTC frente a monedas fiat
+          </h3>
+          <p class="mt-2 text-slate-300">
+            En 2010, un usuario pagó
+            <strong>10.000 BTC por dos pizzas</strong> (unos 40$ por aquel
+            entonces).
+          </p>
+          <p class="mt-2 text-slate-300">
+            En 2011, con esos 10.000 BTC
+            <strong>podría haber comprado un coche.</strong>
+          </p>
+          <p class="mt-2 text-slate-300">
+            En 2012,
+            <strong>podría haber comprado una casa.</strong>
+          </p>
+          <p class="mt-2 text-slate-300">
+            Hoy, esa misma cantidad equivaldría a
+            <strong id="btc-10000-eur">cientos de millones de euros</strong>.
+          </p>
+          <p class="mt-2 text-slate-300">
+            Pero no es que el BTC valga más. 1 BTC sigue siendo 1 BTC. Es el
+            dinero fiat el que pierde valor con el tiempo debido a la inflación
+            y la impresión masiva de moneda.
+          </p>
+          <p class="mt-2 text-slate-300">
+            <strong>
+              Bitcoin no solo es una reserva de valor, sino también una
+              herramienta para combatir la inflación y preservar el poder
+              adquisitivo a largo plazo.</strong
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suscripción -->
+    <section
+      id="suscripcion"
+      class="bg-slate-900 border-t border-slate-800 py-16"
+    >
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl font-bold">Suscríbete</h2>
+        <hr />
+        <div
+          class="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+        >
+          <a
+            href="https://buy.stripe.com/bJe8wP3Ub1c0gRJ3j37IY00"
+            class="rounded-xl bg-orange-600 px-6 py-3 font-semibold text-white shadow hover:bg-orange-500"
+            >Mensual — 10€ / mes</a
+          >
+          <a
+            href="https://buy.stripe.com/5kQdR98ar5sg8ld3j37IY01"
+            class="rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white shadow-lg hover:bg-blue-500 transition"
+            >Anual — 100€ / año</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      id="main-footer"
+      class="bg-slate-950 border-t border-slate-800 py-10 text-sm"
+    >
+      <div class="text-center text-slate-500">
+        © 2025 Avisos BTC. Todos los derechos reservados.
+      </div>
+    </footer>
+
+    <!-- App JS -->
+    <script src="js/includes.js" defer></script>
+    <script src="js/precio-btc.js" defer></script>
+    <script type="module" src="js/app.js" defer></script>
+    <script src="js/cookies_simple.js" defer></script>
+    <!-- Cookie banner container -->
+    <div id="cookie-banner-container"></div>
+  </body>
 </html>
