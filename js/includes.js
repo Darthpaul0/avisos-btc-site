@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const loadHtml = (selector, url) => {
-    const element = document.querySelector(selector);
-    if (!element) return Promise.resolve();
+    const el = document.querySelector(selector);
+    if (!el) return Promise.resolve();
 
     return fetch(url)
       .then((res) => {
@@ -9,23 +9,20 @@ document.addEventListener("DOMContentLoaded", () => {
         return res.text();
       })
       .then((html) => {
-        element.innerHTML = html;
+        el.innerHTML = html;
       })
       .catch((err) => console.error(err));
   };
 
+  // Detectar si estamos en /pages/
   const inPages = window.location.pathname.includes("/pages/");
 
   // Rutas correctas según tu estructura real
-  const headerUrl = inPages
-    ? "../_includes/header.html"
-    : "./_includes/header.html";
-  const footerUrl = inPages
-    ? "../_includes/footer.html"
-    : "./_includes/footer.html";
-  const cookiesUrl = inPages
-    ? "../_includes/cookies_simple.html"
-    : "./_includes/cookies_simple.html";
+  const prefix = inPages ? ".." : ".";
+
+  const headerUrl = `${prefix}/includes/header.html`;
+  const footerUrl = `${prefix}/includes/footer.html`;
+  const cookiesUrl = `${prefix}/includes/cookies_simple.html`;
 
   Promise.all([
     loadHtml("#main-header", headerUrl),
@@ -33,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadHtml("#cookie-banner-container", cookiesUrl),
   ]).then(() => {
     document.dispatchEvent(new CustomEvent("includes:ready"));
+
     if (typeof initializeDynamicContent === "function") {
       initializeDynamicContent();
     }
