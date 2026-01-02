@@ -10,6 +10,11 @@ export function makeChart(ctx, type, data, options) {
   return new Chart(ctx, { type, data, options });
 }
 
+function fetchNoCache(url) {
+  const sep = url.includes("?") ? "&" : "?";
+  return fetch(`${url}${sep}t=${Date.now()}`);
+}
+
 /* ========== Mini-charts de la landing ========== */
 export function renderHeroMiniChart(id = "chartHero") {
   const el = document.getElementById(id);
@@ -135,7 +140,7 @@ export function initBTCChart({
     Chart.register(hoverGuide);
   }
 
-  fetch(xlsxUrl)
+  fetchNoCache(xlsxUrl)
     .then((r) => {
       if (!r.ok)
         throw new Error("No se pudo cargar el archivo de precios BTC.");
@@ -301,7 +306,7 @@ export function renderPctPositiveChart(
   const canvas = document.getElementById(id);
   if (!canvas) return;
 
-  fetch(xlsxUrl)
+  fetchNoCache(xlsxUrl)
     .then((res) => res.arrayBuffer())
     .then((buf) => {
       const wb = XLSX.read(buf, { type: "array" });
@@ -361,7 +366,7 @@ export function renderMeanReturnChart(
   const canvas = document.getElementById(id);
   if (!canvas) return;
 
-  fetch(xlsxUrl)
+  fetchNoCache(xlsxUrl)
     .then((res) => res.arrayBuffer())
     .then((buf) => {
       const wb = XLSX.read(buf, { type: "array" });
